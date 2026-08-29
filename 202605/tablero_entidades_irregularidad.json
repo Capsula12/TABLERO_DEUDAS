@@ -1,0 +1,128 @@
+{
+  "periodo": "202605",
+  "fecha_generacion": "2026-06-30 06:48:05",
+  "tiempo_generacion_seg": 26.2,
+  "umbral_mora": "situacion >= 3",
+  "vista_total": {
+    "tipos": [
+      {
+        "tipo": "banco",
+        "n_deudores": 14464445,
+        "n_morosos": 2326606,
+        "pct_personas_mora": 16.09,
+        "saldo_total_miles": 76579957074.0,
+        "saldo_irreg_miles": 11391971948.0,
+        "pct_monto_irreg": 14.88
+      },
+      {
+        "tipo": "financiera",
+        "n_deudores": 2200329,
+        "n_morosos": 786459,
+        "pct_personas_mora": 35.74,
+        "saldo_total_miles": 3902268292.0,
+        "saldo_irreg_miles": 596338247.0,
+        "pct_monto_irreg": 15.28
+      },
+      {
+        "tipo": "pnfc",
+        "n_deudores": 12891250,
+        "n_morosos": 4126193,
+        "pct_personas_mora": 32.01,
+        "saldo_total_miles": 14516605456.0,
+        "saldo_irreg_miles": 4662039470.0,
+        "pct_monto_irreg": 32.12
+      }
+    ],
+    "n_personas_universo": 20760515
+  },
+  "vista_consumo": {
+    "tipos": [
+      {
+        "tipo": "banco",
+        "n_deudores": 14019750,
+        "n_morosos": 2256591,
+        "pct_personas_mora": 16.1,
+        "saldo_total_miles": 48438495748.0,
+        "saldo_irreg_miles": 9965887934.0,
+        "pct_monto_irreg": 20.57
+      },
+      {
+        "tipo": "financiera",
+        "n_deudores": 2038965,
+        "n_morosos": 782620,
+        "pct_personas_mora": 38.38,
+        "saldo_total_miles": 1937293699.0,
+        "saldo_irreg_miles": 520932110.0,
+        "pct_monto_irreg": 26.89
+      },
+      {
+        "tipo": "pnfc",
+        "n_deudores": 12891250,
+        "n_morosos": 4126193,
+        "pct_personas_mora": 32.01,
+        "saldo_total_miles": 14516605456.0,
+        "saldo_irreg_miles": 4662039470.0,
+        "pct_monto_irreg": 32.12
+      }
+    ],
+    "n_personas_universo": 20497435
+  },
+  "cartera_consumo_bcra_calc": {
+    "banco": {
+      "saldo_total_miles": 65150081532.0,
+      "saldo_irregular_miles": 8343989529.0,
+      "ratio_pct": 12.81
+    },
+    "financiera": {
+      "saldo_total_miles": 3171409404.0,
+      "saldo_irregular_miles": 344630045.0,
+      "ratio_pct": 10.87
+    },
+    "pnfc": {
+      "saldo_total_miles": 484447680.0,
+      "saldo_irregular_miles": 484339642.0,
+      "ratio_pct": 99.98
+    },
+    "sistema_regulado": {
+      "saldo_total_miles": 68321490936.0,
+      "saldo_irregular_miles": 8688619574.0,
+      "ratio_pct": 12.72
+    },
+    "total": {
+      "saldo_total_miles": 68805938616.0,
+      "saldo_irregular_miles": 9172959216.0,
+      "ratio_pct": 13.33
+    },
+    "definicion": "Cartera 'Para Consumo o Vivienda' según T-CLADEU del BCRA, identificada por el código de actividad '000' que cada entidad informante declara línea por línea en la Central de Deudores. Ratio = SUM(prestamos WHERE situacion BETWEEN 3 AND 6) ÷ SUM(prestamos). Se EXCLUYE `otros_conceptos` (write-offs en Partidas fuera de Balance, cartera adquirida y financiaciones del exterior, Com. A 6966, Sec. 3 del Apartado B) porque el BCRA tampoco lo computa en el ratio del Informe sobre Bancos. Sin filtro adicional de PF ni de gar_pref_b: replica el universo BCRA al pie de la letra."
+  },
+  "bcra_referencia": {
+    "bcra_familias_pct": 12.1,
+    "bcra_total_sp_pct": 7.3,
+    "bcra_empresas_pct": 3.3,
+    "bcra_personales_pct": 14.9,
+    "bcra_tarjetas_pct": 12.5,
+    "bcra_hipotecarios_pct": 1.5,
+    "bcra_prendarios_pct": 7.3,
+    "periodo_familias": "202604",
+    "periodo_resto": "202604",
+    "fuente": "BCRA, Informe sobre Bancos (abril 2026)",
+    "fecha_publicacion_aprox": "2026-06"
+  },
+  "metodologia": {
+    "objetivo": "Medir la irregularidad de la deuda desde la perspectiva del hogar (qué proporción de los deudores está en mora) y no sólo desde la perspectiva de la solidez del sistema financiero (qué proporción del dinero prestado está en mora) que es la que publica el BCRA en su Informe sobre Bancos.",
+    "que_mide_el_bcra": "El ratio de irregularidad del Informe sobre Bancos del BCRA está diseñado para medir la SALUD DE LAS ENTIDADES FINANCIERAS, no la situación real de las familias. Su numerador y denominador se calculan sobre la cuenta 'Crédito al sector privado' del balance contable (préstamos vigentes en el activo, con intereses devengados, ajuste CER/CVS y leasing). Cuando una entidad considera un crédito como pérdida lo CASTIGA contablemente: lo saca del activo del balance y lo manda a 'Partidas fuera de Balance' (cuentas de orden). A partir de ese momento ya no pesa en el ratio publicado, aunque la persona deudora sigue recibiendo presiones para pagar (intimaciones, derivación a estudios de cobranza, juicios) y la deuda sigue informada a la Central de Deudores.",
+    "perspectiva_complementaria_hogar": "El ratio por personas (cantidad de morosos / cantidad de deudores) trata a cada deudor igual, sin importar el monto adeudado, y es por eso estructuralmente más alto que el ratio monto/monto. Si una entidad presta mucho dinero a clientes que pagan, el peso de los que no pagan se diluye en el agregado: el ratio del BCRA puede así subestimar la presión real sobre los hogares.",
+    "umbral_mora": "Mora = situación BCRA ≥ 3 (Con problemas, Alto riesgo, Irrecuperable, Irrec. técnica). Idéntico al criterio del resto del tablero.",
+    "regla_atribucion_persona": "Una persona se cuenta como deudor de un tipo (banco / financiera / PNFC) si tiene al menos una línea con una entidad de ese tipo. Se cuenta como MOROSA de ese tipo sólo si su peor situación EN ESE TIPO es ≥ 3. Si está en mora únicamente con una PNFC, no se la cuenta como morosa en bancos ni en financieras.",
+    "vista_total": "Universo: personas humanas vivas (CUIT prefijo '2', no fallecidas en el Padrón ARCA). Sin filtros adicionales: incluye líneas con garantías hipotecarias, prendarias, derechos reales y todas las garantías preferidas. Monto = prestamos + otros_conceptos (toda la deuda que la persona figura debiendo en la Central de Deudores, incluyendo los créditos que las entidades ya castigaron contablemente).",
+    "vista_consumo": "Universo: canon del tablero (PF vivas, gar_pref_b = 0). Monto = prestamos − gar_pref_a + otros_conceptos. Excluye en origen todas las líneas con garantía preferida B (hipotecas, prendas, derechos reales) y descuenta las garantías preferidas A (plazo fijo). Es la métrica de 'deuda de consumo de personas humanas' que se usa en la pestaña General.",
+    "referencia_bcra_calculada": "La línea de referencia 'Cartera Consumo BCRA' (rojo punteada) se calcula sobre nuestra base aplicando exactamente la metodología del Informe sobre Bancos: ratio = SUM(prestamos WHERE situacion BETWEEN 3 AND 6) ÷ SUM(prestamos), filtrando la cartera con código de actividad '000' (Consumo o Vivienda según T-CLADEU del BCRA). Se EXCLUYE `otros_conceptos` porque ese campo agrupa créditos castigados en Partidas fuera de Balance, cartera adquirida y financiaciones del exterior (Com. A 6966 BCRA, Sec. 3 del Apartado B), el BCRA tampoco los computa en su ratio publicado. Replicar esta fórmula da una cifra alineada con el dato BCRA dentro de 0,1 puntos.",
+    "pnfc_fuera_bcra": "El ratio del Informe sobre Bancos del BCRA sólo cubre entidades reguladas (bancos + compañías financieras). Las PNFCs (Mercado Pago, Naranja X, Cencosud, fintechs, retailers, mutuales) reportan a la Central de Deudores pero no figuran en el Informe sobre Bancos. Acá se las muestra como una columna más para hacer visible la diferencia.",
+    "fuente_bcra": "Informe sobre Bancos del BCRA: https://www.bcra.gob.ar/PublicacionesEstadisticas/Informes_Anuales.asp Cuadro de Situación de Deudores: https://www.bcra.gob.ar/entidades-financieras-situacion-deudores/. Glosario oficial define 'Crédito al sector privado' como 'préstamos al sector privado no financiero incluyendo intereses devengados y ajuste CER/CVS y leasing'."
+  },
+  "fuentes": {
+    "local": "Central de Deudores BCRA, tabla `deudores` de consolidado.duckdb (ver leeme.txt §3)",
+    "bcra": "BCRA, Informe sobre Bancos / Situación de Deudores (https://www.bcra.gob.ar/entidades-financieras-situacion-deudores/)",
+    "padron": "ARCA Padrón Único de Contribuyentes (filtro de fallecidos)"
+  }
+}

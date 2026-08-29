@@ -1,0 +1,18 @@
+# Claude Code — configuración local (no va al repo)
+.claude/
+
+# Todo lo demás se versiona: los datos del tablero son agregados sin CUILs y se
+# publican en claro. Hasta 2026-08 iban cifrados (*.enc) y acá se ignoraban los
+# archivos en claro; ese esquema se eliminó.
+#
+# Lo que NUNCA tiene que llegar acá son los parquets con CUILs
+# (deudores_consumo, deuda_persona_entidad, hist_persona): viven en Otras/ del
+# repo privado y el pipeline no los copia. Se listan igual, por las dudas.
+deudores_consumo.parquet
+deuda_persona_entidad.parquet
+hist_persona.parquet
+entidades.parquet
+deudores_caba.parquet
+
+# Bancos de prueba temporales del frontend (ver skill tablero-frontend)
+_*.html

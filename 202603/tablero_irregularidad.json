@@ -1,0 +1,135 @@
+{
+  "periodo": "202603",
+  "fecha_generacion": "2026-05-26 20:30:55",
+  "tiempo_generacion_seg": 18.8,
+  "bloque_a": [
+    {
+      "segmento": "familias",
+      "saldo_total_miles": 74658677583.0,
+      "saldo_irregular_miles": 8218895473.0,
+      "ratio_irregularidad_pct": 11.01
+    },
+    {
+      "segmento": "empresas",
+      "saldo_total_miles": 74182610142.0,
+      "saldo_irregular_miles": 1737503372.0,
+      "ratio_irregularidad_pct": 2.34
+    },
+    {
+      "segmento": "total_sp",
+      "saldo_total_miles": 148841287725.0,
+      "saldo_irregular_miles": 9956398845.0,
+      "ratio_irregularidad_pct": 6.69
+    }
+  ],
+  "bloque_b": [
+    {
+      "tipo_entidad": "banco",
+      "n_deudores": 14522454,
+      "n_morosos": 2219525,
+      "pct_personas_morosas": 15.28
+    },
+    {
+      "tipo_entidad": "financiera",
+      "n_deudores": 2160653,
+      "n_morosos": 739760,
+      "pct_personas_morosas": 34.24
+    },
+    {
+      "tipo_entidad": "sistema_regulado",
+      "n_deudores": 15521167,
+      "n_morosos": 2729204,
+      "pct_personas_morosas": 17.58
+    }
+  ],
+  "bloque_c": [
+    {
+      "tipo_entidad": "banco",
+      "saldo_consumo_miles": 46896420590.0,
+      "saldo_mora_consumo_miles": 8599625820.0,
+      "ratio_mora_consumo_pct": 18.34
+    },
+    {
+      "tipo_entidad": "financiera",
+      "saldo_consumo_miles": 1881560671.0,
+      "saldo_mora_consumo_miles": 454671739.0,
+      "ratio_mora_consumo_pct": 24.16
+    },
+    {
+      "tipo_entidad": "pnfc",
+      "saldo_consumo_miles": 13419543096.0,
+      "saldo_mora_consumo_miles": 4089622521.0,
+      "ratio_mora_consumo_pct": 30.48
+    },
+    {
+      "tipo_entidad": "sistema_regulado",
+      "saldo_consumo_miles": 48777981261.0,
+      "saldo_mora_consumo_miles": 9054297559.0,
+      "ratio_mora_consumo_pct": 18.56
+    },
+    {
+      "tipo_entidad": "total",
+      "saldo_consumo_miles": 62197524357.0,
+      "saldo_mora_consumo_miles": 13143920080.0,
+      "ratio_mora_consumo_pct": 21.13
+    }
+  ],
+  "bloque_d": {
+    "bcra_familias_pct": 11.5,
+    "bcra_total_sp_pct": 7.0,
+    "bcra_empresas_pct": 3.1,
+    "bcra_personales_pct": 14.2,
+    "bcra_tarjetas_pct": 11.7,
+    "bcra_hipotecarios_pct": 1.4,
+    "bcra_prendarios_pct": 6.9,
+    "periodo_familias": "202603",
+    "periodo_resto": "202603",
+    "fuente": "BCRA, Informe sobre Bancos (marzo 2026)",
+    "fecha_publicacion_aprox": "2026-05",
+    "nota_bcra": "Los valores del bloque D son los que publica el BCRA en su 'Informe sobre Bancos'. Se calculan sobre saldos contables de balance de las entidades reguladas (bancos + compañías financieras), por lo que excluyen a las entidades no financieras de crédito (PNFCs: tarjetas no bancarias, fintechs, retailers, etc.) que sí están en la Central de Deudores. La metodología BCRA difiere de la nuestra; ver notas_metodologicas para el detalle.",
+    "advertencia_desfase_periodo": "El período de la base local es 202603; los valores del BCRA pueden corresponder a un período anterior (típicamente 1-2 meses de desfase: el Informe sobre Bancos sale a fines del mes siguiente). Consultá los campos `periodo_familias` / `periodo_resto` para el período exacto de cada cifra."
+  },
+  "bloque_e_cartera_consumo": {
+    "banco": {
+      "saldo_total_miles": 62610224422.0,
+      "saldo_irregular_miles": 7297847457.0,
+      "ratio_irregularidad_pct": 11.66
+    },
+    "financiera": {
+      "saldo_total_miles": 3040673209.0,
+      "saldo_irregular_miles": 274301847.0,
+      "ratio_irregularidad_pct": 9.02
+    },
+    "pnfc": {
+      "saldo_total_miles": 361505829.0,
+      "saldo_irregular_miles": 361252738.0,
+      "ratio_irregularidad_pct": 99.93
+    },
+    "sistema_regulado": {
+      "saldo_total_miles": 65650897631.0,
+      "saldo_irregular_miles": 7572149304.0,
+      "ratio_irregularidad_pct": 11.53
+    },
+    "total": {
+      "saldo_total_miles": 66012403460.0,
+      "saldo_irregular_miles": 7933402042.0,
+      "ratio_irregularidad_pct": 12.02
+    }
+  },
+  "notas_metodologicas": {
+    "que_mide_el_ratio_bcra": "El ratio de irregularidad del Informe sobre Bancos del BCRA está diseñado para medir la SALUD DE LAS ENTIDADES FINANCIERAS: qué proporción del capital que cada entidad mantiene como préstamo vigente en el activo de su balance está clasificada en situación irregular (categorías 3 a 6 de Clasificación de Deudores). Cuando una entidad considera un crédito como pérdida lo CASTIGA contablemente: sale del activo del balance y pasa a Partidas FUERA de Balance (cuentas de orden). A partir de ese momento ya no entra en el ratio publicado por el BCRA, aunque la persona deudora sigue figurando en la Central de Deudores y sigue recibiendo presiones para pagar (intimaciones, derivación a estudios de cobranza, juicios). Por eso el ratio BCRA NO refleja directamente la situación real de los hogares, sólo la salud de la cartera activa de las entidades.",
+    "bloque_a_replica_bcra": "El Bloque A replica la fórmula del Informe sobre Bancos: SUM(prestamos WHERE situacion 3..6) ÷ SUM(prestamos) sobre sistema regulado (bancos + compañías financieras). Usa SOLO `prestamos`, NO suma `otros_conceptos`. Esto último es lo que explica la diferencia con cálculos previos del repo (que daban ~14 % en lugar de ~11,5 %): el campo `otros_conceptos` de la CD (Com. A 6966 BCRA, Sec. 3 del Apartado B) agrupa write-offs en Partidas FUERA de Balance, cartera adquirida y financiaciones del exterior, el BCRA no los computa en su ratio publicado. Replicando esto, el Bloque A calza con el dato BCRA del Bloque D dentro de 0,1 puntos.",
+    "diferencia_b_vs_a": "El Bloque B (personas únicas en mora) es ESTRUCTURALMENTE MAYOR que el Bloque A (monto/monto). Mide cuántas personas tienen al menos un crédito en mora, no qué proporción del capital prestado está en mora. Un deudor con $10.000 en mora sobre $1.000.000 prestado pesa lo mismo que uno con $10.000 sobre $10.000. Por eso es habitual que el ratio de personas duplique al ratio monto/monto. Junto con la vista de % personas en mora de 9_entidades_irregularidad.py es la métrica orientada al hogar (no a la salud del sistema).",
+    "diferencia_c_vs_a": "El Bloque C (consumo puro) difiere del Bloque A en tres aspectos: (1) excluye en origen toda línea con gar_pref_b > 0 (hipotecarios, prendarios, derechos reales), (2) aplica la fórmula canónica del repo consumo = prestamos − gar_pref_a + otros_conceptos, y (3) restringe a personas humanas vivas (prefijo CUIT '2', no fallecidas). NO es directamente comparable con el dato BCRA: sirve para enlazar la pestaña Irregularidad con el resto del tablero (que usa la misma fórmula de consumo).",
+    "pnfcs_fuera_del_universo_bcra": "Las PNFCs (entidades no financieras de crédito: Mercado Pago, Naranja X, Cencosud, fintechs, retailers, mutuales) reportan a la Central de Deudores pero NO están alcanzadas por el Informe sobre Bancos del BCRA, que sólo cubre entidades financieras reguladas. Su irregularidad es estructuralmente mayor (perfil de cliente más riesgoso, tasas activas más altas) y mezclarlas con bancos en el ratio agregado distorsionaría la comparación con el dato BCRA.",
+    "familias_vs_personas_humanas": "El BCRA clasifica el destino del crédito en sus Anexos (consumo / vivienda / comercial), mientras que el Bloque A usa el prefijo del CUIT como proxy: prefijo '2' = persona humana ('familias'), prefijo '3' = persona jurídica ('empresas'). Pueden diferir en autónomos, monotributistas y profesionales con crédito comercial, que son persona humana (prefijo '2') pero su crédito puede no ser de consumo. El Bloque E (cartera_consumo_bcra_calc) sí usa la clasificación BCRA por destino (cartera='CONSUMO_VIV', actividad='000'), es la lectura más fiel del concepto 'familias' del BCRA.",
+    "alcance_bloque_d": "El Bloque D no se calcula sobre la base local: son los valores que publica el BCRA en su Informe sobre Bancos. Se incluyen para contraste y se actualizan a mano en el script al salir un informe nuevo. Ver constante BCRA_REFERENCIA en Scripts/8_irregularidad.py.",
+    "bloque_e_cartera_consumo": "El Bloque E es la VERSIÓN AUTOCALCULADA del ratio BCRA: replica el universo 'Cartera para Consumo o Vivienda' que define el BCRA en su T-CLADEU usando el campo `actividad` (='000') que cada entidad informante declara línea por línea en la Central de Deudores, y aplica la fórmula correcta (SUM(prestamos WHERE sit 3..6) / SUM(prestamos), excluyendo `otros_conceptos`). Sale de la misma base que el resto de los bloques, así que se mantiene sin intervención manual cada vez que se reindexa un período. Calza con el Bloque D (BCRA publicado) dentro de 0,1 puntos. Para uso del tablero como línea de referencia preferir el Bloque E (autoconsistente con el período exacto de la base, sin desfase de publicación) sobre el Bloque D.",
+    "consumo_persona_filter": "El Bloque C agrega a nivel línea sobre el universo canónico (PF vivas, gar_pref_b=0). NO aplica el filtro adicional HAVING SUM(consumo) > 0 a nivel persona que sí usa 6_tablero_base.py: la diferencia esperada es <0.1 % en los totales (los pocos casos con consumo neto ≤ 0 a nivel persona se compensan internamente al sumar)."
+  },
+  "fuentes": {
+    "local": "Central de Deudores BCRA, tabla `deudores` de consolidado.duckdb (ver leeme.txt §3)",
+    "bcra": "BCRA, Informe sobre Bancos / 1816 en base a datos BCRA",
+    "padron": "ARCA Padrón Único de Contribuyentes (filtro de fallecidos)"
+  }
+}

@@ -1,0 +1,931 @@
+{
+  "periodo_actual": "202607",
+  "fecha_ref": "2026-07-31",
+  "fecha_generacion": "2026-08-28 23:01:44",
+  "log": "tablero_historico_202607_20260828_175454.log",
+  "periodos": [
+    "202402",
+    "202403",
+    "202404",
+    "202405",
+    "202406",
+    "202407",
+    "202408",
+    "202409",
+    "202410",
+    "202411",
+    "202412",
+    "202501",
+    "202502",
+    "202503",
+    "202504",
+    "202505",
+    "202506",
+    "202507",
+    "202508",
+    "202509",
+    "202510",
+    "202511",
+    "202512",
+    "202601",
+    "202602",
+    "202603",
+    "202604",
+    "202605",
+    "202606",
+    "202607"
+  ],
+  "heuristica_hipotecarios": {
+    "umbral_gar_pref_b_miles": 30000,
+    "banda_pct": 0.2,
+    "nota": "Se marca como hipotecario cada mes de la historia en que, para un (cuil, entidad) que al período actual tiene gar_pref_b > 30,000 miles de $, el monto mensual informado cae dentro de ±20% del gar_pref_b actual. El monto de esos meses se atribuye 100% a la componente hipotecaria (simplificación: no se prorratea). No es un dato oficial del BCRA.",
+    "n_pares_hipotecarios": 139001,
+    "n_cuils_con_hipotecario": 137221,
+    "aplica_a_meses": [
+      "202402",
+      "202403",
+      "202404",
+      "202405",
+      "202406",
+      "202407",
+      "202408",
+      "202409",
+      "202410",
+      "202411",
+      "202412",
+      "202501",
+      "202502",
+      "202503",
+      "202504",
+      "202505",
+      "202506",
+      "202507",
+      "202508",
+      "202509",
+      "202510",
+      "202511",
+      "202512",
+      "202606"
+    ],
+    "no_aplica_a_meses": [
+      "202601",
+      "202602",
+      "202603",
+      "202604",
+      "202605",
+      "202607"
+    ],
+    "nota_tramos": "En los meses con base propia la componente hipotecaria es EXACTA (líneas con gar_pref_b > 0 en `deudores` de ese mes); la heurística de banda ±20% sólo se usa en los meses reconstruidos desde el 24DSF."
+  },
+  "ipc": {
+    "fuente": "INDEC — IPC Nacional Nivel General",
+    "archivo": "ipc.csv",
+    "periodo_base_ipc": "201612 = 100",
+    "periodo_ref": "202607",
+    "ipc_ref": 12076.3937,
+    "nota": "Para ajustar a pesos constantes del período_ref: monto_constante = monto_nominal * (ipc_ref / ipc[periodo])"
+  },
+  "filtros": {
+    "provincias": [
+      {
+        "cod": "00",
+        "nombre": "CABA"
+      },
+      {
+        "cod": "01",
+        "nombre": "Buenos Aires"
+      },
+      {
+        "cod": "02",
+        "nombre": "Catamarca"
+      },
+      {
+        "cod": "03",
+        "nombre": "Córdoba"
+      },
+      {
+        "cod": "04",
+        "nombre": "Corrientes"
+      },
+      {
+        "cod": "05",
+        "nombre": "Entre Ríos"
+      },
+      {
+        "cod": "06",
+        "nombre": "Jujuy"
+      },
+      {
+        "cod": "07",
+        "nombre": "Mendoza"
+      },
+      {
+        "cod": "08",
+        "nombre": "La Rioja"
+      },
+      {
+        "cod": "09",
+        "nombre": "Salta"
+      },
+      {
+        "cod": "10",
+        "nombre": "San Juan"
+      },
+      {
+        "cod": "11",
+        "nombre": "San Luis"
+      },
+      {
+        "cod": "12",
+        "nombre": "Santa Fe"
+      },
+      {
+        "cod": "13",
+        "nombre": "Santiago del Estero"
+      },
+      {
+        "cod": "14",
+        "nombre": "Tucumán"
+      },
+      {
+        "cod": "16",
+        "nombre": "Chaco"
+      },
+      {
+        "cod": "17",
+        "nombre": "Chubut"
+      },
+      {
+        "cod": "18",
+        "nombre": "Formosa"
+      },
+      {
+        "cod": "19",
+        "nombre": "Misiones"
+      },
+      {
+        "cod": "20",
+        "nombre": "Neuquén"
+      },
+      {
+        "cod": "21",
+        "nombre": "La Pampa"
+      },
+      {
+        "cod": "22",
+        "nombre": "Río Negro"
+      },
+      {
+        "cod": "23",
+        "nombre": "Santa Cruz"
+      },
+      {
+        "cod": "24",
+        "nombre": "Tierra del Fuego"
+      }
+    ],
+    "partidos_pba": [
+      "General San Martín",
+      "José C. Paz",
+      "Malvinas Argentinas",
+      "San Fernando",
+      "San Isidro",
+      "San Miguel",
+      "Tigre",
+      "Tres de Febrero",
+      "Vicente López",
+      "Hurlingham",
+      "Ituzaingó",
+      "La Matanza",
+      "Merlo",
+      "Moreno",
+      "Morón",
+      "Almirante Brown",
+      "Avellaneda",
+      "Berazategui",
+      "Esteban Echeverría",
+      "Ezeiza",
+      "Florencio Varela",
+      "Lanús",
+      "Lomas de Zamora",
+      "Quilmes",
+      "Berisso",
+      "Ensenada",
+      "La Plata",
+      "Brandsen",
+      "Campana",
+      "Cañuelas",
+      "Escobar",
+      "Exaltación de la Cruz",
+      "General Las Heras",
+      "General Rodríguez",
+      "Luján",
+      "Marcos Paz",
+      "Pilar",
+      "Presidente Perón",
+      "San Vicente",
+      "Zárate",
+      "Alberti",
+      "Arrecifes",
+      "Baradero",
+      "Bragado",
+      "Capitán Sarmiento",
+      "Carmen de Areco",
+      "Chacabuco",
+      "Colón",
+      "Florentino Ameghino",
+      "General Arenales",
+      "General Pinto",
+      "General Viamonte",
+      "Junín",
+      "Leandro N. Alem",
+      "Lincoln",
+      "Pergamino",
+      "Ramallo",
+      "Rojas",
+      "Salto",
+      "San Andrés de Giles",
+      "San Antonio de Areco",
+      "San Nicolás",
+      "San Pedro",
+      "25 de Mayo",
+      "9 de Julio",
+      "Adolfo Gonzales Chaves",
+      "Ayacucho",
+      "Azul",
+      "Benito Juárez",
+      "Bolívar",
+      "Carlos Casares",
+      "Carlos Tejedor",
+      "Castelli",
+      "Chascomús",
+      "Chivilcoy",
+      "Dolores",
+      "General Alvear",
+      "General Belgrano",
+      "General Guido",
+      "General La Madrid",
+      "General Paz",
+      "General Villegas",
+      "Hipólito Yrigoyen",
+      "Laprida",
+      "Las Flores",
+      "Lobos",
+      "Magdalena",
+      "Maipú",
+      "Mercedes",
+      "Monte",
+      "Navarro",
+      "Olavarría",
+      "Pehuajó",
+      "Pila",
+      "Punta Indio",
+      "Rauch",
+      "Rivadavia",
+      "Roque Pérez",
+      "Saladillo",
+      "Suipacha",
+      "Tandil",
+      "Tapalqué",
+      "Tordillo",
+      "Trenque Lauquen",
+      "Balcarce",
+      "General Alvarado",
+      "General Juan Madariaga",
+      "General Lavalle",
+      "General Pueyrredón",
+      "La Costa",
+      "Lobería",
+      "Mar Chiquita",
+      "Monte Hermoso",
+      "Necochea",
+      "Pinamar",
+      "San Cayetano",
+      "Villa Gesell",
+      "Adolfo Alsina",
+      "Bahía Blanca",
+      "Coronel Dorrego",
+      "Coronel Pringles",
+      "Coronel Suárez",
+      "Coronel de Marina Leonardo Rosales",
+      "Daireaux",
+      "Guaminí",
+      "Patagones",
+      "Pellegrini",
+      "Puán",
+      "Saavedra",
+      "Salliqueló",
+      "Tornquist",
+      "Tres Arroyos",
+      "Tres Lomas",
+      "Villarino",
+      "Sin clasificar",
+      "Sin dato"
+    ],
+    "regiones_pba": [
+      "GBA Norte",
+      "GBA Oeste",
+      "GBA Sur",
+      "Gran La Plata",
+      "RMBA (3er cordón)",
+      "PBA Norte",
+      "PBA Centro-Oeste",
+      "Costa Atlántica",
+      "PBA Sudoeste",
+      "Sin clasificar",
+      "Sin dato"
+    ],
+    "rangos_etarios": [
+      "Menor 18",
+      "18-19",
+      "20-24",
+      "25-29",
+      "30-34",
+      "35-39",
+      "40-44",
+      "45-49",
+      "50-54",
+      "55-59",
+      "60-64",
+      "65-69",
+      "70+",
+      "Sin dato",
+      "Fecha inválida"
+    ],
+    "sexos": [
+      "Varón",
+      "Mujer",
+      "Otro/SD"
+    ],
+    "tramos": [
+      "< $50K",
+      "$50K-$100K",
+      "$100K-$200K",
+      "$200K-$300K",
+      "$300K-$600K",
+      "$600K-$1M",
+      "$1M-$2M",
+      "$2M-$4M",
+      "$4M-$7M",
+      "$7M-$10M",
+      "$10M-$15M",
+      "$15M-$20M",
+      "> $20M"
+    ],
+    "situaciones": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "tipos_entidad": [
+      "banco",
+      "financiera",
+      "pnfc"
+    ]
+  },
+  "totales_periodo_actual": {
+    "n_deudores": 20664755,
+    "n_morosos": 5734911,
+    "deuda_total_mm": 88837444.41,
+    "deuda_ex_hip_mm": 67403831.43,
+    "deuda_hip_mm": 21433612.98
+  },
+  "ultimo_mes_completado": {
+    "aplicado": true,
+    "n_entidades_rezagadas": 109,
+    "nota": "El mes actual del 24DSF viene incompleto: las entidades listadas no informaron el mes -0 pero sí el mes -1, así que sus valores del mes -1 se arrastraron al mes actual (carry-forward a nivel entidad) para no subregistrar el último punto de la serie. En la próxima actualización este período se recalcula con los datos definitivos (la ventana de 24m lo pisa). Ver docstring de pipeline/4_tablero_historico.py.",
+    "entidades": [
+      {
+        "cod": "00309",
+        "nombre": "BANCO RIOJA SOCIEDAD ANONIMA UNIPERSONAL"
+      },
+      {
+        "cod": "00432",
+        "nombre": "BANCO DE COMERCIO S.A."
+      },
+      {
+        "cod": "10915",
+        "nombre": "F.F. CENTURIA"
+      },
+      {
+        "cod": "10922",
+        "nombre": "Maipú Fideicomiso Financiero"
+      },
+      {
+        "cod": "10923",
+        "nombre": "F.F. PRIVADO GREEN LIGHT"
+      },
+      {
+        "cod": "50001",
+        "nombre": "ACINDAR PYMES SGR"
+      },
+      {
+        "cod": "50017",
+        "nombre": "PROMOVER SGR"
+      },
+      {
+        "cod": "50029",
+        "nombre": "Fid Aval SGR"
+      },
+      {
+        "cod": "50032",
+        "nombre": "RESILIENCIA SGR"
+      },
+      {
+        "cod": "50034",
+        "nombre": "Rig Avales S.G.R"
+      },
+      {
+        "cod": "50036",
+        "nombre": "Móvil S.G.R."
+      },
+      {
+        "cod": "50040",
+        "nombre": "MILLS SGR"
+      },
+      {
+        "cod": "50041",
+        "nombre": "ALIANZA S.G.R."
+      },
+      {
+        "cod": "50043",
+        "nombre": "Neuquèn Pymes SGR"
+      },
+      {
+        "cod": "51003",
+        "nombre": "FONDO DE GARANTÍAS ARGENTINO"
+      },
+      {
+        "cod": "51008",
+        "nombre": "Fondo de Garantías Entre Ríos S.A.P.E.M. (FO.GA.ER. S.A.P.E.M.)"
+      },
+      {
+        "cod": "51014",
+        "nombre": "Fondo de Garantía Catamarca Sociedad Anónima con Participación Estatal"
+      },
+      {
+        "cod": "51015",
+        "nombre": "Fideicomiso Fondo de Garantías para el Desarrollo de las Micro, Pequeñ"
+      },
+      {
+        "cod": "51016",
+        "nombre": "Fondo de Garantía Río Negro (FoGaRío)"
+      },
+      {
+        "cod": "55001",
+        "nombre": "Accicom S.A."
+      },
+      {
+        "cod": "55002",
+        "nombre": "AMEPORT Mutual del Personal del Estado Nacional Provincial Municipal y"
+      },
+      {
+        "cod": "55005",
+        "nombre": "Asociación Mutual de las Fuerzas Armadas y Seguridad (AMFAYS)"
+      },
+      {
+        "cod": "55018",
+        "nombre": "Cooperativa de Provisión de Obras y Servicios Publicos y de Créditos C"
+      },
+      {
+        "cod": "55025",
+        "nombre": "Cuotitas S.A."
+      },
+      {
+        "cod": "55026",
+        "nombre": "Decréditos S.A."
+      },
+      {
+        "cod": "55041",
+        "nombre": "Naldo Lombardi S.A."
+      },
+      {
+        "cod": "55042",
+        "nombre": "Plural Cooperativa de Crédito, Consumo y Vivienda Ltda."
+      },
+      {
+        "cod": "55048",
+        "nombre": "Sicom S.A."
+      },
+      {
+        "cod": "55061",
+        "nombre": "Radio Sapienza S.A."
+      },
+      {
+        "cod": "55073",
+        "nombre": "Oportunidad Microfinanciera Latinoamericana OMLA S.A."
+      },
+      {
+        "cod": "55075",
+        "nombre": "IDUN INVERSIONES S.A."
+      },
+      {
+        "cod": "55082",
+        "nombre": "Asociación Mutual de Pensionados Sociales Ley 5110"
+      },
+      {
+        "cod": "55086",
+        "nombre": "Asociación Mutual Asis"
+      },
+      {
+        "cod": "55088",
+        "nombre": "Asociación Mutual de Docentes de la Provincia del Chaco"
+      },
+      {
+        "cod": "55096",
+        "nombre": "FINANCIACIONES CUYO S.A."
+      },
+      {
+        "cod": "55098",
+        "nombre": "CONSUMO S.A."
+      },
+      {
+        "cod": "55100",
+        "nombre": "BAZAR AVENIDA S.A."
+      },
+      {
+        "cod": "55109",
+        "nombre": "Credikot COOPERATIVA DE VIVIENDA, CRÉDITO Y CONSUMO  LTDA"
+      },
+      {
+        "cod": "55123",
+        "nombre": "Cooperativa 2001 de Vivienda, Crédito y Consumo Ltda."
+      },
+      {
+        "cod": "55125",
+        "nombre": "Cooperativa de Vivienda, Crédito, Consumo y Servicios Sociales Candela"
+      },
+      {
+        "cod": "55128",
+        "nombre": "Crediser Argentina S.A."
+      },
+      {
+        "cod": "55130",
+        "nombre": "Mutual de Jubilados, Retirados y Pensionados Provinciales"
+      },
+      {
+        "cod": "55137",
+        "nombre": "Cooperativa de Crédito, Consumo, Vivienda y Servicios Sociales Videgar"
+      },
+      {
+        "cod": "55149",
+        "nombre": "INDO S.A."
+      },
+      {
+        "cod": "55160",
+        "nombre": "Arrayanes Cooperativa de Vivienda, Crédito y Consumo"
+      },
+      {
+        "cod": "55163",
+        "nombre": "FF Capital Group S.A."
+      },
+      {
+        "cod": "55170",
+        "nombre": "Cooperativa de Viv., Cred. y Con. Amigal Ltda."
+      },
+      {
+        "cod": "55185",
+        "nombre": "Cooperativa de Crédito, Consumo y Vvienda Fincredit Ltda"
+      },
+      {
+        "cod": "55208",
+        "nombre": "GS Negocios S.A."
+      },
+      {
+        "cod": "55210",
+        "nombre": "Del País Cooperativa de Crédito, Consumo y Vivienda Ltda."
+      },
+      {
+        "cod": "55213",
+        "nombre": "Multiplycard S.A."
+      },
+      {
+        "cod": "55225",
+        "nombre": "EXI S.A."
+      },
+      {
+        "cod": "55255",
+        "nombre": "DINEFA S.R.L."
+      },
+      {
+        "cod": "55256",
+        "nombre": "MSA CREDITOS S.A."
+      },
+      {
+        "cod": "55263",
+        "nombre": "FINANCOMPRA S.A."
+      },
+      {
+        "cod": "55273",
+        "nombre": "INSIGHT GROUP SA"
+      },
+      {
+        "cod": "55277",
+        "nombre": "ASOCIACION MUTUAL FIAT CONCORD"
+      },
+      {
+        "cod": "55279",
+        "nombre": "SOLVENTA SAS"
+      },
+      {
+        "cod": "55281",
+        "nombre": "ASOCIACION MUTUAL CELESOL DE SERVICIOS INTEGRALES Y EDUCATIVOS"
+      },
+      {
+        "cod": "55288",
+        "nombre": "GLOBAL CAPITAL MANAGEMENT SA"
+      },
+      {
+        "cod": "55289",
+        "nombre": "UNION PROVINCIAL ASOCIACION MUTUAL"
+      },
+      {
+        "cod": "55297",
+        "nombre": "FINANCITY S.A."
+      },
+      {
+        "cod": "55298",
+        "nombre": "ESPACIO DIGITAL S.A"
+      },
+      {
+        "cod": "55310",
+        "nombre": "MACRO SOLUTIONS SA"
+      },
+      {
+        "cod": "55312",
+        "nombre": "ABAN DIGITAL S.A."
+      },
+      {
+        "cod": "55313",
+        "nombre": "MICODEMO S.A."
+      },
+      {
+        "cod": "55314",
+        "nombre": "REGGIO DI CALABRIA S.R.L."
+      },
+      {
+        "cod": "55336",
+        "nombre": "OSCAR BARBIERI S.A."
+      },
+      {
+        "cod": "55338",
+        "nombre": "TRESSFEN SA"
+      },
+      {
+        "cod": "55357",
+        "nombre": "CREDIBEL S.A."
+      },
+      {
+        "cod": "55359",
+        "nombre": "DHF SA"
+      },
+      {
+        "cod": "55370",
+        "nombre": "CREDIL S.R.L."
+      },
+      {
+        "cod": "55389",
+        "nombre": "SI CAPITAL"
+      },
+      {
+        "cod": "55392",
+        "nombre": "NEGOCIOS FINANCIEROS CREDILOMAS S.A."
+      },
+      {
+        "cod": "55409",
+        "nombre": "Finet SA"
+      },
+      {
+        "cod": "55411",
+        "nombre": "CREDITAN COOPERATIVA DE VIVIENDA CREDITO Y CONSUMO LTDA"
+      },
+      {
+        "cod": "55414",
+        "nombre": "INTERCAPITAL FACTORING S.A."
+      },
+      {
+        "cod": "55439",
+        "nombre": "MUTUAL DE PORTEÑA ASOCIACION CULTURAL Y DEPORTIVA"
+      },
+      {
+        "cod": "55454",
+        "nombre": "BIA SRL"
+      },
+      {
+        "cod": "55463",
+        "nombre": "MILLASA S.A."
+      },
+      {
+        "cod": "55470",
+        "nombre": "CAMELUS S.A."
+      },
+      {
+        "cod": "55472",
+        "nombre": "SUMA INVERSIONES S.A."
+      },
+      {
+        "cod": "55479",
+        "nombre": "FIDUCIA ARGENTINA S.A.S."
+      },
+      {
+        "cod": "55488",
+        "nombre": "RIO FRANCO SA"
+      },
+      {
+        "cod": "55493",
+        "nombre": "OPENCRED SA"
+      },
+      {
+        "cod": "55495",
+        "nombre": "SOCIEDAD DE CREDITO SA"
+      },
+      {
+        "cod": "55497",
+        "nombre": "FINLATINA SA"
+      },
+      {
+        "cod": "55498",
+        "nombre": "LANTI SA"
+      },
+      {
+        "cod": "55531",
+        "nombre": "ARGENTUM CAPITAL SA"
+      },
+      {
+        "cod": "55562",
+        "nombre": "SERVICIOS CADMA SA"
+      },
+      {
+        "cod": "55566",
+        "nombre": "SALOMON S.A. SOCIEDAD ANONIMA"
+      },
+      {
+        "cod": "55584",
+        "nombre": "CONSUMEX S.A."
+      },
+      {
+        "cod": "70142",
+        "nombre": "ALARFIN S.A."
+      },
+      {
+        "cod": "70212",
+        "nombre": "CREDI-PAZ S.A."
+      },
+      {
+        "cod": "70231",
+        "nombre": "MUTUAL DE ASOC Y ADHER CLUB SPORTS SALTO"
+      },
+      {
+        "cod": "70268",
+        "nombre": "Asociación Mutual 20 de Julio"
+      },
+      {
+        "cod": "70270",
+        "nombre": "Asociación Mutual Club Social Deportivo Ascensión"
+      },
+      {
+        "cod": "70433",
+        "nombre": "SISCOM S.R.L."
+      },
+      {
+        "cod": "70806",
+        "nombre": "EMPRENDER S.A."
+      },
+      {
+        "cod": "70808",
+        "nombre": "Caja Municipal de Préstamos Sociedad de Economía Mixta"
+      },
+      {
+        "cod": "70903",
+        "nombre": "Única compañía de Crédito S.A."
+      },
+      {
+        "cod": "71101",
+        "nombre": "NOA CARD S.A."
+      },
+      {
+        "cod": "71103",
+        "nombre": "GLOBAL S.R.L."
+      },
+      {
+        "cod": "71202",
+        "nombre": "EMPRESUR S.A."
+      },
+      {
+        "cod": "71402",
+        "nombre": "CENTRO CARD S.A."
+      },
+      {
+        "cod": "72129",
+        "nombre": "ASOCIACION MUTUAL CLUB ATLETICO PILAR"
+      },
+      {
+        "cod": "72306",
+        "nombre": "VALLE FERTIL S.A."
+      },
+      {
+        "cod": "72613",
+        "nombre": "NORYSUR SOCIEDAD ANONIMA"
+      },
+      {
+        "cod": "72622",
+        "nombre": "ASOCIACION MUTUAL SANTA AGUSTINA"
+      }
+    ]
+  },
+  "tuning_duckdb": {
+    "memory_limit": "8GB",
+    "threads": 4,
+    "temp_dir": "E:\\GITHUB\\DEUDAS_ANALISIS\\.duckdb_tmp"
+  },
+  "consolidado": {
+    "nota": "Serie consolidada multi-generación: cada corrida mensual de pipeline/4_tablero_historico.py pisa los meses de su ventana de 24 meses y preserva los anteriores tal como los dejó la generación que los aportó (heurística hipotecaria y padrón de ese momento). `fuentes` indica qué generación aportó cada mes.",
+    "ventana_meses_por_generacion": 24,
+    "generacion_mas_reciente": "202607",
+    "fecha_consolidacion": "2026-08-28 23:01:45",
+    "fuentes": {
+      "202407": "202601",
+      "202408": "202607",
+      "202409": "202607",
+      "202410": "202607",
+      "202411": "202607",
+      "202412": "202607",
+      "202501": "202607",
+      "202502": "202607",
+      "202503": "202607",
+      "202504": "202607",
+      "202505": "202607",
+      "202506": "202607",
+      "202507": "202607",
+      "202508": "202607",
+      "202509": "202607",
+      "202510": "202607",
+      "202511": "202607",
+      "202512": "202607",
+      "202601": "202607",
+      "202602": "202607",
+      "202603": "202607",
+      "202604": "202607",
+      "202605": "202607",
+      "202606": "202607",
+      "202402": "202601",
+      "202403": "202601",
+      "202404": "202601",
+      "202405": "202601",
+      "202406": "202601",
+      "202607": "202607"
+    }
+  },
+  "corte_universo": {
+    "ultimo_mes_previo": "202406",
+    "primer_mes_nuevo": "202407",
+    "nota": "Entre junio y julio de 2024 el BCRA subió de $1.000 a $25.000 el importe mínimo que las entidades deben informar a la Central de Deudores. Se cayeron 5,4 millones de registros (35,3 M a 29,9 M) y 3,1 millones de personas humanas, casi todas con deudas chicas: la mediana de los que dejaron de aparecer era de $12.000. No cambió quién informa: 432 entidades en junio, 454 en julio. Los niveles de los dos tramos NO son comparables entre sí; dentro de cada tramo sí lo son. El piso quedó fijo en términos nominales, así que la inflación lo licúa: explica ~4% del crecimiento de registros acumulado hasta 2026-01."
+  },
+  "totales_periodo_actual_previo_24dsf": {
+    "n_deudores": 20664847,
+    "n_morosos": 5732488,
+    "deuda_total_mm": 88854108.87,
+    "deuda_ex_hip_mm": 76161999.6,
+    "deuda_hip_mm": 12692109.27
+  },
+  "metodologia_por_mes": {
+    "exactos": [
+      "202601",
+      "202602",
+      "202603",
+      "202604",
+      "202605",
+      "202607"
+    ],
+    "reconstruidos": [
+      "202402",
+      "202403",
+      "202404",
+      "202405",
+      "202406",
+      "202407",
+      "202408",
+      "202409",
+      "202410",
+      "202411",
+      "202412",
+      "202501",
+      "202502",
+      "202503",
+      "202504",
+      "202505",
+      "202506",
+      "202507",
+      "202508",
+      "202509",
+      "202510",
+      "202511",
+      "202512",
+      "202606"
+    ],
+    "nota": "Los meses 'exactos' se calculan desde la tabla `deudores` de la base propia de ese mes (canon idéntico a la pestaña General, componente hipotecaria exacta por gar_pref_b, sin sesgo de supervivencia ni carry-forward). Los 'reconstruidos' salen del 24DSF (historico_24m) vía pipeline/4_tablero_historico.py: usan la heurística de hipotecarios y están filtrados contra los vínculos vigentes en el mes de su generación, por lo que SUBREGISTRAN a quienes ya cancelaron (hasta ~19% en el mes más viejo de la ventana). No comparar niveles entre ambos tramos sin tenerlo en cuenta.",
+    "generado": "2026-08-28 23:09:34"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "periodo": "202607",
+  "fecha_generacion": "2026-08-28 23:02:17",
+  "tiempo_generacion_seg": 25.1,
+  "umbral_mora": "situacion >= 3",
+  "vista_total": {
+    "tipos": [
+      {
+        "tipo": "banco",
+        "n_deudores": 14559436,
+        "n_morosos": 2432600,
+        "pct_personas_mora": 16.71,
+        "saldo_total_miles": 80368254946.0,
+        "saldo_irreg_miles": 12644282212.0,
+        "pct_monto_irreg": 15.73
+      },
+      {
+        "tipo": "financiera",
+        "n_deudores": 2169133,
+        "n_morosos": 806035,
+        "pct_personas_mora": 37.16,
+        "saldo_total_miles": 3983758800.0,
+        "saldo_irreg_miles": 639531122.0,
+        "pct_monto_irreg": 16.05
+      },
+      {
+        "tipo": "pnfc",
+        "n_deudores": 12944521,
+        "n_morosos": 4152727,
+        "pct_personas_mora": 32.08,
+        "saldo_total_miles": 14895126791.0,
+        "saldo_irreg_miles": 5014224236.0,
+        "pct_monto_irreg": 33.66
+      }
+    ],
+    "n_personas_universo": 20822014
+  },
+  "vista_consumo": {
+    "tipos": [
+      {
+        "tipo": "banco",
+        "n_deudores": 14121508,
+        "n_morosos": 2362037,
+        "pct_personas_mora": 16.73,
+        "saldo_total_miles": 50550072276.0,
+        "saldo_irreg_miles": 11061219389.0,
+        "pct_monto_irreg": 21.88
+      },
+      {
+        "tipo": "financiera",
+        "n_deudores": 2001109,
+        "n_morosos": 801875,
+        "pct_personas_mora": 40.07,
+        "saldo_total_miles": 1958632363.0,
+        "saldo_irreg_miles": 560463794.0,
+        "pct_monto_irreg": 28.62
+      },
+      {
+        "tipo": "pnfc",
+        "n_deudores": 12944521,
+        "n_morosos": 4152727,
+        "pct_personas_mora": 32.08,
+        "saldo_total_miles": 14895126791.0,
+        "saldo_irreg_miles": 5014224236.0,
+        "pct_monto_irreg": 33.66
+      }
+    ],
+    "n_personas_universo": 20562970
+  },
+  "cartera_consumo_bcra_calc": {
+    "banco": {
+      "saldo_total_miles": 67763218106.0,
+      "saldo_irregular_miles": 8823380957.0,
+      "ratio_pct": 13.02
+    },
+    "financiera": {
+      "saldo_total_miles": 3200052501.0,
+      "saldo_irregular_miles": 354895967.0,
+      "ratio_pct": 11.09
+    },
+    "pnfc": {
+      "saldo_total_miles": 502623777.0,
+      "saldo_irregular_miles": 502518611.0,
+      "ratio_pct": 99.98
+    },
+    "sistema_regulado": {
+      "saldo_total_miles": 70963270607.0,
+      "saldo_irregular_miles": 9178276924.0,
+      "ratio_pct": 12.93
+    },
+    "total": {
+      "saldo_total_miles": 71465894384.0,
+      "saldo_irregular_miles": 9680795535.0,
+      "ratio_pct": 13.55
+    },
+    "definicion": "Cartera 'Para Consumo o Vivienda' según T-CLADEU del BCRA, identificada por el código de actividad '000' que cada entidad informante declara línea por línea en la Central de Deudores. Ratio = SUM(prestamos WHERE situacion BETWEEN 3 AND 6) ÷ SUM(prestamos). Se EXCLUYE `otros_conceptos` (write-offs en Partidas fuera de Balance, cartera adquirida y financiaciones del exterior — Com. A 6966, Sec. 3 del Apartado B) porque el BCRA tampoco lo computa en el ratio del Informe sobre Bancos. Sin filtro adicional de PF ni de gar_pref_b: replica el universo BCRA al pie de la letra."
+  },
+  "bcra_referencia": {
+    "bcra_familias_pct": 12.8,
+    "bcra_total_sp_pct": 7.6,
+    "bcra_empresas_pct": 3.5,
+    "bcra_personales_pct": 15.9,
+    "bcra_tarjetas_pct": 13.1,
+    "bcra_hipotecarios_pct": 1.6,
+    "bcra_prendarios_pct": 7.7,
+    "periodo_familias": "202606",
+    "periodo_resto": "202605",
+    "fuente": "BCRA - Informe sobre Bancos (junio 2026)",
+    "fecha_publicacion_aprox": "2026-08"
+  },
+  "metodologia": {
+    "objetivo": "El BCRA mide la mora sobre el dinero prestado: cuánta plata está en problemas. Acá la medimos sobre las personas: cuántos de los deudores están en mora. Son dos preguntas distintas, y la segunda da siempre más alto, porque quien debe $10.000 pesa lo mismo que quien debe $10 millones.",
+    "por_que_difieren": "Además, el ratio del BCRA se calcula sobre los préstamos que siguen en el balance de la entidad. Cuando un banco da un crédito por perdido lo saca de ahí, y desde ese momento deja de contar, aunque la persona siga debiéndolo, siga informada a la Central de Deudores y siga recibiendo reclamos de cobro.",
+    "como_se_cuenta": "Alguien es deudor de un tipo de acreedor si tiene al menos un crédito con una entidad de ese tipo, y está en mora con ese tipo si su peor situación ahí es 3 o superior. Si debe sólo a una PNFC, no cuenta como moroso de los bancos.",
+    "las_dos_vistas": "\"Toda la deuda\" toma todo lo que la persona figura debiendo, incluidas hipotecas y prendas. \"Sólo consumo\" usa el mismo recorte que la pestaña General: sin garantías reales y descontando el plazo fijo dado en garantía.",
+    "linea_de_referencia": "La línea punteada replica la fórmula del BCRA sobre nuestra propia base, para comparar contra un número calculado con los mismos datos y no contra un informe con dos meses de desfase. Da dentro de 0,1 puntos del valor publicado.",
+    "fuente_bcra": "Informe sobre Bancos del BCRA (https://www.bcra.gob.ar/PublicacionesEstadisticas/Informes_Anuales.asp) y Cuadro de Situación de Deudores (https://www.bcra.gob.ar/entidades-financieras-situacion-deudores/)."
+  },
+  "fuentes": {
+    "local": "Central de Deudores BCRA — tabla `deudores` de la base consolidada mensual consolidadoAAAAMM.duckdb (ver leeme.md §3)",
+    "bcra": "BCRA — Informe sobre Bancos / Situación de Deudores (https://www.bcra.gob.ar/entidades-financieras-situacion-deudores/)",
+    "padron": "ARCA Padrón Único de Contribuyentes (filtro de fallecidos)"
+  }
+}

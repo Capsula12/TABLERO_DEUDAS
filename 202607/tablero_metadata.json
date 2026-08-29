@@ -1,0 +1,336 @@
+{
+  "periodo": "202607",
+  "fecha_ref": "2026-07-31",
+  "fecha_generacion": "2026-08-28 17:54:39",
+  "tiempo_generacion_seg": 513.7,
+  "filtros": {
+    "provincias": [
+      {
+        "cod": "00",
+        "nombre": "CABA"
+      },
+      {
+        "cod": "01",
+        "nombre": "Buenos Aires"
+      },
+      {
+        "cod": "02",
+        "nombre": "Catamarca"
+      },
+      {
+        "cod": "03",
+        "nombre": "Córdoba"
+      },
+      {
+        "cod": "04",
+        "nombre": "Corrientes"
+      },
+      {
+        "cod": "05",
+        "nombre": "Entre Ríos"
+      },
+      {
+        "cod": "06",
+        "nombre": "Jujuy"
+      },
+      {
+        "cod": "07",
+        "nombre": "Mendoza"
+      },
+      {
+        "cod": "08",
+        "nombre": "La Rioja"
+      },
+      {
+        "cod": "09",
+        "nombre": "Salta"
+      },
+      {
+        "cod": "10",
+        "nombre": "San Juan"
+      },
+      {
+        "cod": "11",
+        "nombre": "San Luis"
+      },
+      {
+        "cod": "12",
+        "nombre": "Santa Fe"
+      },
+      {
+        "cod": "13",
+        "nombre": "Santiago del Estero"
+      },
+      {
+        "cod": "14",
+        "nombre": "Tucumán"
+      },
+      {
+        "cod": "16",
+        "nombre": "Chaco"
+      },
+      {
+        "cod": "17",
+        "nombre": "Chubut"
+      },
+      {
+        "cod": "18",
+        "nombre": "Formosa"
+      },
+      {
+        "cod": "19",
+        "nombre": "Misiones"
+      },
+      {
+        "cod": "20",
+        "nombre": "Neuquén"
+      },
+      {
+        "cod": "21",
+        "nombre": "La Pampa"
+      },
+      {
+        "cod": "22",
+        "nombre": "Río Negro"
+      },
+      {
+        "cod": "23",
+        "nombre": "Santa Cruz"
+      },
+      {
+        "cod": "24",
+        "nombre": "Tierra del Fuego"
+      },
+      {
+        "cod": "ZZ",
+        "nombre": "Sin dato"
+      }
+    ],
+    "partidos_pba": [
+      "General San Martín",
+      "José C. Paz",
+      "Malvinas Argentinas",
+      "San Fernando",
+      "San Isidro",
+      "San Miguel",
+      "Tigre",
+      "Tres de Febrero",
+      "Vicente López",
+      "Hurlingham",
+      "Ituzaingó",
+      "La Matanza",
+      "Merlo",
+      "Moreno",
+      "Morón",
+      "Almirante Brown",
+      "Avellaneda",
+      "Berazategui",
+      "Esteban Echeverría",
+      "Ezeiza",
+      "Florencio Varela",
+      "Lanús",
+      "Lomas de Zamora",
+      "Quilmes",
+      "Berisso",
+      "Ensenada",
+      "La Plata",
+      "Brandsen",
+      "Campana",
+      "Cañuelas",
+      "Escobar",
+      "Exaltación de la Cruz",
+      "General Las Heras",
+      "General Rodríguez",
+      "Luján",
+      "Marcos Paz",
+      "Pilar",
+      "Presidente Perón",
+      "San Vicente",
+      "Zárate",
+      "Alberti",
+      "Arrecifes",
+      "Baradero",
+      "Bragado",
+      "Capitán Sarmiento",
+      "Carmen de Areco",
+      "Chacabuco",
+      "Colón",
+      "Florentino Ameghino",
+      "General Arenales",
+      "General Pinto",
+      "General Viamonte",
+      "Junín",
+      "Leandro N. Alem",
+      "Lincoln",
+      "Pergamino",
+      "Ramallo",
+      "Rojas",
+      "Salto",
+      "San Andrés de Giles",
+      "San Antonio de Areco",
+      "San Nicolás",
+      "San Pedro",
+      "25 de Mayo",
+      "9 de Julio",
+      "Adolfo Gonzales Chaves",
+      "Ayacucho",
+      "Azul",
+      "Benito Juárez",
+      "Bolívar",
+      "Carlos Casares",
+      "Carlos Tejedor",
+      "Castelli",
+      "Chascomús",
+      "Chivilcoy",
+      "Dolores",
+      "General Alvear",
+      "General Belgrano",
+      "General Guido",
+      "General La Madrid",
+      "General Paz",
+      "General Villegas",
+      "Hipólito Yrigoyen",
+      "Laprida",
+      "Las Flores",
+      "Lobos",
+      "Magdalena",
+      "Maipú",
+      "Mercedes",
+      "Monte",
+      "Navarro",
+      "Olavarría",
+      "Pehuajó",
+      "Pila",
+      "Punta Indio",
+      "Rauch",
+      "Rivadavia",
+      "Roque Pérez",
+      "Saladillo",
+      "Suipacha",
+      "Tandil",
+      "Tapalqué",
+      "Tordillo",
+      "Trenque Lauquen",
+      "Balcarce",
+      "General Alvarado",
+      "General Juan Madariaga",
+      "General Lavalle",
+      "General Pueyrredón",
+      "La Costa",
+      "Lobería",
+      "Mar Chiquita",
+      "Monte Hermoso",
+      "Necochea",
+      "Pinamar",
+      "San Cayetano",
+      "Villa Gesell",
+      "Adolfo Alsina",
+      "Bahía Blanca",
+      "Coronel Dorrego",
+      "Coronel Pringles",
+      "Coronel Suárez",
+      "Coronel de Marina Leonardo Rosales",
+      "Daireaux",
+      "Guaminí",
+      "Patagones",
+      "Pellegrini",
+      "Puán",
+      "Saavedra",
+      "Salliqueló",
+      "Tornquist",
+      "Tres Arroyos",
+      "Tres Lomas",
+      "Villarino",
+      "Sin clasificar",
+      "Sin dato"
+    ],
+    "regiones_pba": [
+      "GBA Norte",
+      "GBA Oeste",
+      "GBA Sur",
+      "Gran La Plata",
+      "RMBA (3er cordón)",
+      "PBA Norte",
+      "PBA Centro-Oeste",
+      "Costa Atlántica",
+      "PBA Sudoeste",
+      "Sin clasificar",
+      "Sin dato"
+    ],
+    "rangos_etarios": [
+      "Menor 18",
+      "18-19",
+      "20-24",
+      "25-29",
+      "30-34",
+      "35-39",
+      "40-44",
+      "45-49",
+      "50-54",
+      "55-59",
+      "60-64",
+      "65-69",
+      "70+",
+      "Sin dato",
+      "Fecha inválida"
+    ],
+    "sexos": [
+      "Varón",
+      "Mujer",
+      "Otro/SD"
+    ],
+    "tramos": [
+      "< $50K",
+      "$50K-$100K",
+      "$100K-$200K",
+      "$200K-$300K",
+      "$300K-$600K",
+      "$600K-$1M",
+      "$1M-$2M",
+      "$2M-$4M",
+      "$4M-$7M",
+      "$7M-$10M",
+      "$10M-$15M",
+      "$15M-$20M",
+      "> $20M"
+    ],
+    "situaciones": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "tipos_entidad": [
+      "banco",
+      "financiera",
+      "pnfc"
+    ]
+  },
+  "modelo_red_defaults_pct": {
+    "1": 95,
+    "2": 85,
+    "3": 60,
+    "4": 25,
+    "5": 15
+  },
+  "totales": {
+    "n_deudores": 20562080,
+    "n_morosos": 5721806,
+    "deuda_total_mm": 67403831.43,
+    "deuda_mora_mm": 16635907.42,
+    "deuda_banco_mm": 50550072.28,
+    "deuda_financiera_mm": 1958632.36,
+    "deuda_pnfc_mm": 14895126.79,
+    "pct_mora_deudores": 27.83,
+    "pct_mora_deuda": 24.68
+  },
+  "notas_metodologicas": {
+    "universo": "Personas humanas (CUIT prefijo 2) vivas (excluye fecha_fallecimiento != '') con consumo > 0. Se excluyen en origen TODAS las líneas con gar_pref_b > 0 (hipotecas, prendas, derechos reales) y las de cartera comercial BCRA (deudores.cartera = 'COMERCIAL' = actividad declarada 001-999; solo entran CONSUMO_VIV y PNFC): el tablero analiza deuda de consumo pura.",
+    "consumo": "prestamos - gar_pref_a + otros_conceptos. Incluye PNFCs (que reportan solo en prestamos) y excluye garantías líquidas (A). Las líneas con garantías B se filtran en origen, no se restan.",
+    "mora": "situacion >= 3, criterio del peor clasificador a nivel persona.",
+    "tipo_entidad": "banco = cod '00...' | financiera = lista en entidades_financieras.txt | pnfc = resto.",
+    "partido_pba": "Partido de Buenos Aires resuelto desde cod_postal con la tabla Scripts/referencia/cp_partido_pba.csv (Correo Argentino y GeoNames para CP→localidad; georef-ar de datos.gob.ar, sobre IGN e INDEC, para localidad→partido). Solo cuando provincia ARCA = '01'; NULL para CABA y resto del país. 'Sin dato' = CP vacío o 0000; 'Sin clasificar' = CP no presente en la tabla. Cobertura: 99,4% de las personas con CP informado.",
+    "region_pba": "Agrupación de los 135 partidos en 9 regiones. GBA Norte/Oeste/Sur son exactamente los 24 partidos del Gran Buenos Aires según INDEC. Es función del partido, así que no agrega filas al cubo."
+  }
+}
