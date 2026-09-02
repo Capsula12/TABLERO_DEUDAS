@@ -1,15 +1,17 @@
 # Tablero de Deuda de Consumo
 
 Sitio estático que muestra cómo está endeudada la gente según la Central de
-Deudores del BCRA. Se publica en GitHub Pages y corre entero en el navegador:
-DuckDB-WASM levanta unos parquets agregados y responde las consultas del lado
-del cliente. No hay servidor ni API.
+Deudores del BCRA. Corre entero en el navegador: DuckDB-WASM levanta unos
+parquets agregados y responde las consultas del lado del cliente. No hay
+backend ni API.
 
-**El acceso es abierto**: se entra por el link y listo. Hasta agosto de 2026 los
-datos iban cifrados y el sitio pedía una contraseña; se sacó.
+Se publica en **https://labancaria.org/deudores/**. **El acceso es abierto**: se
+entra por el link y listo. Hasta agosto de 2026 los datos iban cifrados y el
+sitio pedía una contraseña; se sacó.
 
 Los genera el repo privado `DEUDAS_ANALISIS`, que es donde vive la base con los
-datos personales. Acá sólo llegan agregados.
+datos personales. Acá sólo llegan agregados. **Este repo también es privado**
+desde septiembre de 2026: lo que es abierto es el sitio, no el código.
 
 ---
 
@@ -444,7 +446,9 @@ quedan en `Otras/` del repo privado y el pipeline no los toca.
 
 ## Publicar
 
-Lo normal es correr `publicar_tablero.bat` desde el repo padre, que hace todo.
+Son dos pasos y el segundo no lo hacemos nosotros.
+
+**1. Pushear.** Lo normal es correr `publicar_tablero.bat` desde el repo padre.
 A mano:
 
 ```bash
@@ -452,11 +456,18 @@ cd TABLERO_DEUDAS
 git add -A
 git commit -m "Período AAAAMM"
 git push origin main
-git push origin main:page
 ```
 
-Pages sirve desde la rama **`page`**, no desde `main`, así que hay que pushear a
-las dos. El `.nojekyll` está para que Pages sirva los archivos tal cual.
+**2. Pullear en el servidor.** El sitio es un clone de este repo en el servidor
+de La Bancaria, y no se actualiza solo: alguien de sistemas tiene que correr el
+`git pull`. Hasta que eso pase, el push no cambió nada de lo que se ve. El clone
+autentica con un deploy key de solo lectura, así que el servidor puede leer este
+repo y nada más.
+
+Hasta septiembre de 2026 esto también se publicaba en GitHub Pages, servido
+desde la rama `page`; al pasar el repo a privado la page se despublicó. La rama
+sigue existiendo pero quedó congelada. El `.nojekyll` es un resto de esa época:
+no molesta y se deja por si alguna vez vuelve.
 
 ---
 
