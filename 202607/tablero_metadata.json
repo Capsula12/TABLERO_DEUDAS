@@ -1,8 +1,8 @@
 {
   "periodo": "202607",
   "fecha_ref": "2026-07-31",
-  "fecha_generacion": "2026-08-28 17:54:39",
-  "tiempo_generacion_seg": 513.7,
+  "fecha_generacion": "2026-09-03 20:43:36",
+  "tiempo_generacion_seg": 451.8,
   "filtros": {
     "provincias": [
       {
@@ -315,15 +315,15 @@
     "5": 15
   },
   "totales": {
-    "n_deudores": 20562080,
-    "n_morosos": 5721806,
-    "deuda_total_mm": 67403831.43,
-    "deuda_mora_mm": 16635907.42,
-    "deuda_banco_mm": 50550072.28,
-    "deuda_financiera_mm": 1958632.36,
-    "deuda_pnfc_mm": 14895126.79,
-    "pct_mora_deudores": 27.83,
-    "pct_mora_deuda": 24.68
+    "n_deudores": 20583229,
+    "n_morosos": 5738541,
+    "deuda_total_mm": 67572244.33,
+    "deuda_mora_mm": 16709471.08,
+    "deuda_banco_mm": 50549703.89,
+    "deuda_financiera_mm": 1958629.26,
+    "deuda_pnfc_mm": 15063911.19,
+    "pct_mora_deudores": 27.88,
+    "pct_mora_deuda": 24.73
   },
   "notas_metodologicas": {
     "universo": "Personas humanas (CUIT prefijo 2) vivas (excluye fecha_fallecimiento != '') con consumo > 0. Se excluyen en origen TODAS las líneas con gar_pref_b > 0 (hipotecas, prendas, derechos reales) y las de cartera comercial BCRA (deudores.cartera = 'COMERCIAL' = actividad declarada 001-999; solo entran CONSUMO_VIV y PNFC): el tablero analiza deuda de consumo pura.",
