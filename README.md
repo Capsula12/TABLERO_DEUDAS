@@ -403,6 +403,18 @@ entidad. La sección de arriba mide cuántos **deudores** están en mora; el BCR
 publica cuánta **plata** está en mora. Son preguntas distintas y la primera da
 siempre más alto. Si falta el JSON de irregularidad, la sección se oculta sola.
 
+Sus dos vistas se diferencian **sólo en las garantías reales**, y cada una
+cierra con una pestaña del tablero: "sólo consumo" tiene el mismo universo que
+General, y "toda la deuda" el mismo que Histórico. Así que los tres números de
+deudores que muestra el sitio son en realidad dos, y la única diferencia entre
+ellos es si las hipotecas y las prendas entran o no (en 2026/07, 102.562
+personas). Ninguna de las dos vistas incluye cartera comercial.
+
+> Hasta septiembre de 2026 esto no cerraba: "toda la deuda" sumaba además la
+> cartera comercial (157.138 personas de más que el Histórico) y a "sólo
+> consumo" le faltaba el `HAVING SUM(consumo) > 0` del canon (888 personas de
+> más que General). Eran cuatro universos donde tenía que haber dos.
+
 La pestaña se dibuja en el arranque, con su sección todavía oculta, así que sus
 charts nacen midiendo 0x0 y quedan a merced del `ResizeObserver` de Chart.js
 para acomodarse cuando la pestaña aparece. `setupTabs()` los redibuja al entrar

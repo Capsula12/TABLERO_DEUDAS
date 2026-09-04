@@ -1,27 +1,27 @@
 {
   "periodo": "202607",
-  "fecha_generacion": "2026-09-04 07:56:47",
-  "tiempo_generacion_seg": 40.0,
+  "fecha_generacion": "2026-09-04 18:02:05",
+  "tiempo_generacion_seg": 37.2,
   "umbral_mora": "situacion >= 3",
   "vista_total": {
     "tipos": [
       {
         "tipo": "banco",
-        "n_deudores": 14559334,
-        "n_morosos": 2432893,
-        "pct_personas_mora": 16.71,
-        "saldo_total_miles": 80368369363.0,
-        "saldo_irreg_miles": 12645828951.0,
-        "pct_monto_irreg": 15.73
+        "n_deudores": 14258966,
+        "n_morosos": 2377214,
+        "pct_personas_mora": 16.67,
+        "saldo_total_miles": 70501078072.0,
+        "saldo_irreg_miles": 11674463662.0,
+        "pct_monto_irreg": 16.56
       },
       {
         "tipo": "financiera",
-        "n_deudores": 2169129,
-        "n_morosos": 806032,
-        "pct_personas_mora": 37.16,
-        "saldo_total_miles": 3983755692.0,
-        "saldo_irreg_miles": 639528095.0,
-        "pct_monto_irreg": 16.05
+        "n_deudores": 2154499,
+        "n_morosos": 804907,
+        "pct_personas_mora": 37.36,
+        "saldo_total_miles": 3440931973.0,
+        "saldo_irreg_miles": 603230425.0,
+        "pct_monto_irreg": 17.53
       },
       {
         "tipo": "pnfc",
@@ -33,15 +33,15 @@
         "pct_monto_irreg": 33.76
       }
     ],
-    "n_personas_universo": 20842929
+    "n_personas_universo": 20685791
   },
   "vista_consumo": {
     "tipos": [
       {
         "tipo": "banco",
-        "n_deudores": 14121403,
-        "n_morosos": 2362339,
-        "pct_personas_mora": 16.73,
+        "n_deudores": 14120515,
+        "n_morosos": 2361632,
+        "pct_personas_mora": 16.72,
         "saldo_total_miles": 50549703891.0,
         "saldo_irreg_miles": 11062780047.0,
         "pct_monto_irreg": 21.88
@@ -65,7 +65,7 @@
         "pct_monto_irreg": 33.76
       }
     ],
-    "n_personas_universo": 20584117
+    "n_personas_universo": 20583229
   },
   "cartera_consumo_bcra_calc": {
     "banco": {
@@ -112,7 +112,7 @@
     "objetivo": "El BCRA mide la mora sobre el dinero prestado: cuánta plata está en problemas. Acá la medimos sobre las personas: cuántos de los deudores están en mora. Son dos preguntas distintas, y la segunda da siempre más alto, porque quien debe $10.000 pesa lo mismo que quien debe $10 millones.",
     "por_que_difieren": "Además, el ratio del BCRA se calcula sobre los préstamos que siguen en el balance de la entidad. Cuando un banco da un crédito por perdido lo saca de ahí, y desde ese momento deja de contar, aunque la persona siga debiéndolo, siga informada a la Central de Deudores y siga recibiendo reclamos de cobro.",
     "como_se_cuenta": "Alguien es deudor de un tipo de acreedor si tiene al menos un crédito con una entidad de ese tipo, y está en mora con ese tipo si su peor situación ahí es 3 o superior. Si debe sólo a una PNFC, no cuenta como moroso de los bancos.",
-    "las_dos_vistas": "\"Toda la deuda\" toma todo lo que la persona figura debiendo, incluidas hipotecas y prendas. \"Sólo consumo\" usa el mismo recorte que la pestaña General: sin garantías reales y descontando el plazo fijo dado en garantía.",
+    "las_dos_vistas": "Las dos vistas se diferencian sólo en las garantías reales. \"Toda la deuda\" suma las hipotecas y las prendas, y es el mismo universo que la pestaña Histórico. \"Sólo consumo\" usa el recorte de la pestaña General: sin garantías reales y descontando el plazo fijo dado en garantía. Ninguna de las dos incluye la cartera comercial, que en todo el tablero queda afuera.",
     "linea_de_referencia": "La línea punteada replica la fórmula del BCRA sobre nuestra propia base, para comparar contra un número calculado con los mismos datos y no contra un informe con dos meses de desfase. Da dentro de 0,1 puntos del valor publicado.",
     "fuente_bcra": "Informe sobre Bancos del BCRA (https://www.bcra.gob.ar/PublicacionesEstadisticas/Informes_Anuales.asp) y Cuadro de Situación de Deudores (https://www.bcra.gob.ar/entidades-financieras-situacion-deudores/)."
   },

@@ -4460,7 +4460,13 @@ const IRREG_COLOR = { banco:'#1890d8', financiera:'#e8a23d', pnfc:'#6d5bd0' };
 async function loadIrregularidadEnt() {
   const base = `${PERIODO_ACTIVO}/`;
   try {
-    IRREG_DATA = await fetchJson(base + 'tablero_entidades_irregularidad.json');
+    // no-cache como index.json: es el único archivo del período que se
+    // rehace solo (5,9 KB), porque 5_entidades.py se puede volver a correr
+    // sobre un mes ya publicado para corregir el cálculo. Sin esto el
+    // navegador sigue mostrando la versión vieja aunque el servidor ya tenga
+    // la nueva, que fue exactamente lo que pasó al alinear los universos.
+    IRREG_DATA = await fetchJson(base + 'tablero_entidades_irregularidad.json',
+                                 { cache: 'no-cache' });
     document.getElementById('ent-irreg-wrap').style.display = '';
     renderIrregularidadEnt();
   } catch (e) {
@@ -4538,8 +4544,11 @@ function renderIrregularidadEnt() {
   document.getElementById('ent-irreg-cards').innerHTML = cardsHtml;
 
   // Banner — descripción de la vista
+  // Las dos vistas se diferencian sólo en las garantías reales, así que cada
+  // una cierra con una pestaña: 'total' con Histórico y 'consumo' con General.
   const desc = irregVista === 'total'
-    ? `<b>Toda la deuda</b> informada al BCRA, incluidas hipotecas y prendas.`
+    ? `<b>Toda la deuda</b> informada al BCRA, incluidas hipotecas y prendas,
+       el mismo recorte que la pestaña Histórico.`
     : `<b>Sólo deuda de consumo</b>, el mismo recorte que la pestaña General:
        sin hipotecas ni prendas, y descontando el plazo fijo dado en garantía.`;
   document.getElementById('ent-irreg-banner').innerHTML =
