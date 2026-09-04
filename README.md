@@ -97,11 +97,35 @@ explícitamente: tiene la morosidad más alta de la tabla, así que ordenando po
 porcentaje encabezaba el ranking como si fuera un distrito, y el mapa ni
 siquiera puede dibujarlo.
 
-El toggle **modo excluyente** del filtro por tipo de acreedor cambia la
-pregunta: apagado muestra a las personas que deben a alguno de los tipos
-elegidos (con toda su deuda); prendido muestra sólo la deuda con esos tipos.
-En ese modo el conteo de morosos queda un poco alto, porque el cubo no guarda
-la peor situación desagregada por tipo.
+El selector debajo del filtro por tipo de acreedor cambia la pregunta, no sólo
+el recorte. Son tres modos:
+
+| Modo | Qué muestra |
+|---|---|
+| **Toda la deuda de esas personas** | Quienes deben a alguno de los tipos elegidos, con todo lo que deben. Es el default. |
+| **Sólo la deuda con esos tipos** | Las mismas personas, pero sólo la plata que le deben a esos tipos. |
+| **Sólo quienes deben únicamente a esos tipos** | Las personas que no le deben a ningún tipo fuera de la selección, con toda su deuda. |
+
+Los dos últimos se parecen y no son lo mismo. El segundo recorta las
+**métricas** y deja el universo intacto: quien debe a un banco y a una PNFC
+sigue contando, pero sólo se ve su parte con PNFC. El tercero recorta el
+**universo** y deja las métricas intactas: esa misma persona desaparece salvo
+que se elijan los dos tipos a la vez.
+
+Esa diferencia también decide cuál es exacto. En "sólo la deuda con esos tipos"
+el conteo de morosos queda un poco alto, porque el cubo no guarda la peor
+situación desagregada por tipo, y por eso ahí se ocultan las cards "Por tipo de
+acreedor" (repartiría un total ya recortado a esos mismos tipos) y "Peor
+situación BCRA" (mostraría la situación global contra montos que no son los
+suyos). En "sólo quienes deben únicamente a esos tipos" no hay aproximación
+ninguna: si la persona no tiene nada afuera del recorte, su deuda global y su
+peor situación global ya son las del recorte. Las dos cards siguen visibles.
+
+Los tres modos salen de los flags `tiene_banco` / `tiene_financiera` /
+`tiene_pnfc` que el cubo ya trae por fila, así que el tercero se resuelve entero
+en `buildWhere()` sumando `tiene_<no elegido> = 0`. Por eso lo heredan todos los
+cortes de la pestaña, incluidos el mapa, el drill de CABA y los Cruces, sin
+tocar sus consultas.
 
 El card "Por tipo de acreedor" tiene dos vistas: **por tipo**, donde quien debe
 a varios cuenta en cada uno (la suma da más que el total), y **por

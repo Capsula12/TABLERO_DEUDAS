@@ -881,15 +881,11 @@ tbody td {
         <div class="filter-group">
           <label>Tipo de acreedor</label>
           <div class="ms" data-key="tipo"></div>
-          <div class="toggle-row" style="margin-top:6px">
-            <span class="tog-label">Modo excluyente
-              <small>Sólo la deuda con los tipos elegidos. Aplica sólo acá.</small>
-            </span>
-            <label class="switch">
-              <input type="checkbox" id="f-tipo-excl">
-              <span class="slider"></span>
-            </label>
-          </div>
+          <select class="simple" id="f-tipo-modo" style="margin-top:6px">
+            <option value="todos">Toda la deuda de esas personas</option>
+            <option value="deuda">Sólo la deuda con esos tipos</option>
+            <option value="solo">Sólo quienes deben únicamente a esos tipos</option>
+          </select>
           <p class="note" id="f-tipo-note">Personas con deuda en alguno de los tipos elegidos.</p>
         </div>
 
@@ -906,11 +902,8 @@ tbody td {
       <div class="main-content">
 
         <div class="hist-banner" id="excl-banner" style="display:none">
-          <b>Modo excluyente activo</b> <span class="pill-mode" id="excl-banner-tipos">—</span>
-          <span style="display:block;margin-top:4px">
-            Se muestra sólo la deuda con los tipos elegidos. El conteo de morosos
-            queda un poco alto cuando una persona debe a varios tipos a la vez.
-          </span>
+          <b id="excl-banner-tit">Modo excluyente activo</b> <span class="pill-mode" id="excl-banner-tipos">—</span>
+          <span style="display:block;margin-top:4px" id="excl-banner-txt"></span>
         </div>
 
         <div class="kpi-row five">
@@ -1673,6 +1666,9 @@ const SIT_LABEL = { 1:'1 - Normal', 2:'2 - Riesgo bajo', 3:'3 - Problemática', 
 const SIT_COLOR = ['#22c55e','#eab308','#f97316','#ef4444','#7f1d1d'];
 const TIPO_COLOR = { banco:'#1890d8', financiera:'#e8a23d', pnfc:'#6d5bd0' };
 const TIPO_LABEL = { banco:'Banco', financiera:'Financiera', pnfc:'PNFC' };
+// Los tres tipos, en el orden en que se muestran. Es el universo completo del
+// filtro: el modo 'solo' necesita saber cuáles quedaron SIN elegir.
+const TIPO_KEYS = ['banco', 'financiera', 'pnfc'];
 
 // Combinaciones exclusivas de tipos de acreedor. Cada persona cae en EXACTAMENTE
 // una combinación (los flags tiene_banco/financiera/pnfc del cubo definen el bucket),
@@ -1720,19 +1716,38 @@ const F = {
   tramoHasta: '',  // string (vacío = último)
   sit: [],         // multi (1..5)
   tipo: [],        // multi: banco|financiera|pnfc
-  tipoExcl: false, // toggle "Modo excluyente" del filtro tipo (sólo aplica a Tab General)
+  // 'todos' | 'deuda' | 'solo' — los tres modos del filtro por tipo de
+  // acreedor, explicados abajo. Sólo aplica a la pestaña General.
+  tipoModo: 'todos',
 };
 
-// ── Modo excluyente del filtro Tipo de acreedor ──────────────────
-// Activo SÓLO cuando el toggle está ON y hay al menos un tipo seleccionado.
-// Cuando aplica:
-//   · deuda total → SUM de deuda_<tipo>_miles de los tipos elegidos
-//   · deuda mora  → SUM de deuda_mora_<tipo>_miles de los tipos elegidos
-//   · n_deudores  → CUILs con tiene_<tipo>=1 en al menos uno de los elegidos
-//   · n_morosos   → APROX: CUILs con deuda_mora_<tipo>_miles>0 en alguno
-//                   (sesgo al alza en celdas con peor_sit≥3 que mezclan tipos)
+// ── Los tres modos del filtro Tipo de acreedor ───────────────────
+// Cambian la pregunta, no sólo el recorte. Ninguno aplica si no hay al menos
+// un tipo elegido.
+//
+//   'todos'  Personas con deuda en alguno de los tipos, con TODA su deuda.
+//            Es el default y no toca las métricas.
+//
+//   'deuda'  Las mismas personas, pero sólo la plata que le deben a esos
+//            tipos. Recorta las métricas, no el universo:
+//              · deuda total → SUM de deuda_<tipo>_miles de los elegidos
+//              · deuda mora  → SUM de deuda_mora_<tipo>_miles de los elegidos
+//              · n_deudores  → CUILs con tiene_<tipo>=1 en alguno
+//              · n_morosos   → APROX: CUILs con deuda_mora_<tipo>_miles>0 en
+//                              alguno (sesgo al alza cuando una persona mezcla
+//                              tipos y su peor_sit viene de otro)
+//
+//   'solo'   Sólo las personas que NO deben a ningún tipo fuera de la
+//            selección. Recorta el universo, no las métricas, y por eso es el
+//            único de los dos acotados que es EXACTO: si toda la deuda de la
+//            persona está adentro del recorte, la deuda global y la peor
+//            situación global ya son las del recorte. Se resuelve entero en
+//            buildWhere() con tiene_<no elegido>=0, así que lo heredan todos
+//            los cortes (mapa, CABA, cruces) sin tocar sus consultas.
+//
 // Más detalle ver leeme.md §11 "Modo excluyente" y README.md §4.3.
-function exclOn()      { return !!(F.tipoExcl && F.tipo.length > 0); }
+function exclOn()      { return F.tipoModo === 'deuda' && F.tipo.length > 0; }
+function soloOn()      { return F.tipoModo === 'solo'  && F.tipo.length > 0; }
 function exclTipos()   { return F.tipo.slice(); }
 function exclSumExpr(prefix) {
   // prefix ∈ {'deuda', 'deuda_mora'} → 'deuda_banco_miles' / 'deuda_mora_banco_miles' …
@@ -2197,10 +2212,17 @@ function buildWhere(extraExclusions = [], { sinProvincia = false } = {}) {
     parts.push(`tramo_consumo IN ${sqlList(slice)}`);
   }
 
-  // Tipo acreedor: OR entre los seleccionados
+  // Tipo acreedor: OR entre los seleccionados. En modo 'solo' se suma que no
+  // tenga ninguno de los NO seleccionados, que es lo que vuelve al recorte
+  // exclusivo a nivel persona (deber a ML y a una financiera deja de contar si
+  // sólo se eligió PNFC).
   if (F.tipo.length) {
     const conds = F.tipo.map(t => `tiene_${t} = 1`).join(' OR ');
     parts.push(`(${conds})`);
+    if (soloOn()) {
+      TIPO_KEYS.filter(t => !F.tipo.includes(t))
+               .forEach(t => parts.push(`tiene_${t} = 0`));
+    }
   }
 
   parts.push(...extraExclusions);
@@ -3229,25 +3251,43 @@ function drawBarChart(canvasId, rows, state, refOrder, orientation = 'horizontal
   });
 }
 
-// Aplica el estado "excluyente" a la UI del Tab General:
-// muestra/oculta el banner, las cards de "Tipo de acreedor" y "Por situación BCRA"
-// y actualiza la nota del filtro tipo. Lo invoca refreshGeneral antes de pintar.
+// Aplica el modo del filtro tipo de acreedor a la UI del Tab General: banner,
+// nota del filtro y visibilidad de las cards que el modo invalida. Lo invoca
+// refreshGeneral antes de pintar.
+//
+// Sólo el modo 'deuda' oculta cards. Ahí "Por tipo de acreedor" repartiría un
+// total ya recortado a esos mismos tipos, y "Peor situación BCRA" mostraría la
+// situación global de la persona contra montos que no son los suyos. En 'solo'
+// las dos siguen siendo verdaderas: la persona no tiene nada afuera del
+// recorte, así que su deuda y su peor situación son las que se ven.
 function applyExclUI() {
-  const on   = exclOn();
+  const modoDeuda = exclOn();
+  const modoSolo  = soloOn();
   const ban  = document.getElementById('excl-banner');
   const cTp  = document.getElementById('card-tipo-acreedor');
   const cSt  = document.getElementById('card-sit');
   const note = document.getElementById('f-tipo-note');
   const pill = document.getElementById('excl-banner-tipos');
-  const TLBL = { banco:'Banco', financiera:'Financiera', pnfc:'PNFC' };
-  if (ban)  ban.style.display  = on ? '' : 'none';
-  if (cTp)  cTp.style.display  = on ? 'none' : '';
-  if (cSt)  cSt.style.display  = on ? 'none' : '';
-  if (pill && on) pill.textContent = exclTipos().map(t => TLBL[t] || t).join(' + ');
+  const tit  = document.getElementById('excl-banner-tit');
+  const txt  = document.getElementById('excl-banner-txt');
+  if (ban)  ban.style.display  = (modoDeuda || modoSolo) ? '' : 'none';
+  if (cTp)  cTp.style.display  = modoDeuda ? 'none' : '';
+  if (cSt)  cSt.style.display  = modoDeuda ? 'none' : '';
+  if (pill && (modoDeuda || modoSolo)) {
+    pill.textContent = exclTipos().map(t => TIPO_LABEL[t] || t).join(' + ');
+  }
+  if (tit) tit.textContent = modoSolo
+    ? 'Deudores exclusivos de'
+    : 'Modo excluyente activo';
+  if (txt) txt.textContent = modoSolo
+    ? 'Se cuentan sólo las personas que no le deben a ningún otro tipo de acreedor. Los montos y el conteo de morosos son exactos, porque toda la deuda de esas personas está adentro del recorte.'
+    : 'Se muestra sólo la deuda con los tipos elegidos. El conteo de morosos queda un poco alto cuando una persona debe a varios tipos a la vez.';
   if (note) {
-    note.textContent = on
-      ? 'Sólo la deuda con estos tipos. El conteo de morosos es aproximado.'
-      : 'Personas con deuda en alguno de los tipos elegidos.';
+    note.textContent = modoSolo
+      ? 'Sólo personas sin deuda con ningún otro tipo. Montos y morosos exactos.'
+      : modoDeuda
+        ? 'Sólo la deuda con estos tipos. El conteo de morosos es aproximado.'
+        : 'Personas con deuda en alguno de los tipos elegidos.';
   }
 }
 
@@ -4876,12 +4916,13 @@ function initSidebars(meta) {
   tDesde.addEventListener('change', e => { F.tramoDesde = e.target.value; debouncedRefresh(); });
   tHasta.addEventListener('change', e => { F.tramoHasta = e.target.value; debouncedRefresh(); });
 
-  // Toggle "Modo excluyente" del filtro tipo de acreedor
-  const tipoExclChk = document.getElementById('f-tipo-excl');
-  if (tipoExclChk) {
-    tipoExclChk.checked = F.tipoExcl;
-    tipoExclChk.addEventListener('change', e => {
-      F.tipoExcl = e.target.checked;
+  // Modo del filtro tipo de acreedor (toda la deuda / sólo esa deuda / sólo
+  // quienes deben únicamente a esos tipos)
+  const tipoModoSel = document.getElementById('f-tipo-modo');
+  if (tipoModoSel) {
+    tipoModoSel.value = F.tipoModo;
+    tipoModoSel.addEventListener('change', e => {
+      F.tipoModo = e.target.value;
       debouncedRefresh();
     });
   }
@@ -4889,10 +4930,10 @@ function initSidebars(meta) {
   // Reset
   document.getElementById('btn-reset').addEventListener('click', () => {
     F.provincia = []; F.edad = []; F.sexo = []; F.sit = []; F.tipo = [];
-    F.tramoDesde = ''; F.tramoHasta = ''; F.tipoExcl = false;
+    F.tramoDesde = ''; F.tramoHasta = ''; F.tipoModo = 'todos';
     Object.values(MS_REGISTRY).flat().forEach(inst => inst.setSelected([], false));
     tDesde.value = ''; tHasta.value = '';
-    if (tipoExclChk) tipoExclChk.checked = false;
+    if (tipoModoSel) tipoModoSel.value = 'todos';
     debouncedRefresh();
   });
 }
