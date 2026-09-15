@@ -1,8 +1,8 @@
 {
   "periodo_actual": "202607",
   "fecha_ref": "2026-07-31",
-  "fecha_generacion": "2026-09-04 07:55:48",
-  "log": "tablero_historico_202607_20260903_204349.log",
+  "fecha_generacion": "2026-09-11 12:11:15",
+  "log": "tablero_historico_202607_20260910_231609.log",
   "periodos": [
     "202402",
     "202403",
@@ -386,15 +386,15 @@
     ]
   },
   "totales_periodo_actual": {
-    "n_deudores": 20685791,
-    "n_morosos": 5751623,
-    "deuda_total_mm": 89005921.23,
-    "deuda_ex_hip_mm": 67572244.33,
-    "deuda_hip_mm": 21433676.9
+    "n_deudores": 20684088,
+    "n_morosos": 5749821,
+    "deuda_total_mm": 89043731.39,
+    "deuda_ex_hip_mm": 67611222.18,
+    "deuda_hip_mm": 21432509.21
   },
   "ultimo_mes_completado": {
     "aplicado": true,
-    "n_entidades_rezagadas": 69,
+    "n_entidades_rezagadas": 50,
     "nota": "El mes actual del 24DSF viene incompleto: las entidades listadas no informaron el mes -0 pero sí el mes -1, así que sus valores del mes -1 se arrastraron al mes actual (carry-forward a nivel entidad) para no subregistrar el último punto de la serie. En la próxima actualización este período se recalcula con los datos definitivos (la ventana de 24m lo pisa). Ver docstring de pipeline/4_tablero_historico.py.",
     "entidades": [
       {
@@ -412,10 +412,6 @@
       {
         "cod": "50034",
         "nombre": "Rig Avales S.G.R"
-      },
-      {
-        "cod": "50036",
-        "nombre": "Móvil S.G.R."
       },
       {
         "cod": "50041",
@@ -438,10 +434,6 @@
         "nombre": "Fondo de Garantía Río Negro (FoGaRío)"
       },
       {
-        "cod": "55001",
-        "nombre": "Accicom S.A."
-      },
-      {
         "cod": "55002",
         "nombre": "AMEPORT Mutual del Personal del Estado Nacional Provincial Municipal y"
       },
@@ -450,40 +442,12 @@
         "nombre": "Asociación Mutual de las Fuerzas Armadas y Seguridad (AMFAYS)"
       },
       {
-        "cod": "55025",
-        "nombre": "Cuotitas S.A."
-      },
-      {
         "cod": "55026",
         "nombre": "Decréditos S.A."
       },
       {
-        "cod": "55041",
-        "nombre": "Naldo Lombardi S.A."
-      },
-      {
-        "cod": "55042",
-        "nombre": "Plural Cooperativa de Crédito, Consumo y Vivienda Ltda."
-      },
-      {
-        "cod": "55048",
-        "nombre": "Sicom S.A."
-      },
-      {
-        "cod": "55061",
-        "nombre": "Radio Sapienza S.A."
-      },
-      {
-        "cod": "55063",
-        "nombre": "Uninverc S.A."
-      },
-      {
         "cod": "55073",
         "nombre": "Oportunidad Microfinanciera Latinoamericana OMLA S.A."
-      },
-      {
-        "cod": "55075",
-        "nombre": "IDUN INVERSIONES S.A."
       },
       {
         "cod": "55086",
@@ -514,8 +478,8 @@
         "nombre": "Mutual de Jubilados, Retirados y Pensionados Provinciales"
       },
       {
-        "cod": "55159",
-        "nombre": "TCC Cooperativa de Crédito, Consumo y Vivienda Limitada"
+        "cod": "55151",
+        "nombre": "PREVER COOPERATIVA DE CRÉDITO Y CONSUMO LTDA"
       },
       {
         "cod": "55160",
@@ -524,10 +488,6 @@
       {
         "cod": "55170",
         "nombre": "Cooperativa de Viv., Cred. y Con. Amigal Ltda."
-      },
-      {
-        "cod": "55185",
-        "nombre": "Cooperativa de Crédito, Consumo y Vvienda Fincredit Ltda"
       },
       {
         "cod": "55210",
@@ -582,16 +542,8 @@
         "nombre": "DHF SA"
       },
       {
-        "cod": "55389",
-        "nombre": "SI CAPITAL"
-      },
-      {
         "cod": "55392",
         "nombre": "NEGOCIOS FINANCIEROS CREDILOMAS S.A."
-      },
-      {
-        "cod": "55403",
-        "nombre": "FACILCRED S.A."
       },
       {
         "cod": "55409",
@@ -606,32 +558,12 @@
         "nombre": "INTERCAPITAL FACTORING S.A."
       },
       {
-        "cod": "55454",
-        "nombre": "BIA SRL"
-      },
-      {
-        "cod": "55463",
-        "nombre": "MILLASA S.A."
-      },
-      {
         "cod": "55479",
         "nombre": "FIDUCIA ARGENTINA S.A.S."
       },
       {
         "cod": "55497",
         "nombre": "FINLATINA SA"
-      },
-      {
-        "cod": "55531",
-        "nombre": "ARGENTUM CAPITAL SA"
-      },
-      {
-        "cod": "55566",
-        "nombre": "SALOMON S.A. SOCIEDAD ANONIMA"
-      },
-      {
-        "cod": "55584",
-        "nombre": "CONSUMEX S.A."
       },
       {
         "cod": "70212",
@@ -642,12 +574,12 @@
         "nombre": "Asociación Mutual 20 de Julio"
       },
       {
-        "cod": "70270",
-        "nombre": "Asociación Mutual Club Social Deportivo Ascensión"
-      },
-      {
         "cod": "70433",
         "nombre": "SISCOM S.R.L."
+      },
+      {
+        "cod": "70503",
+        "nombre": "LOCRED SRL"
       },
       {
         "cod": "71101",
@@ -656,14 +588,6 @@
       {
         "cod": "71202",
         "nombre": "EMPRESUR S.A."
-      },
-      {
-        "cod": "71402",
-        "nombre": "CENTRO CARD S.A."
-      },
-      {
-        "cod": "72112",
-        "nombre": "ASOC MUTUAL SOC CTRO EC CAÑADA DE GOMEZ"
       },
       {
         "cod": "72129",
@@ -684,7 +608,7 @@
     "nota": "Serie consolidada multi-generación: cada corrida mensual de pipeline/4_tablero_historico.py pisa los meses de su ventana de 24 meses y preserva los anteriores tal como los dejó la generación que los aportó (heurística hipotecaria y padrón de ese momento). `fuentes` indica qué generación aportó cada mes.",
     "ventana_meses_por_generacion": 24,
     "generacion_mas_reciente": "202607",
-    "fecha_consolidacion": "2026-09-04 07:55:52",
+    "fecha_consolidacion": "2026-09-11 12:11:17",
     "fuentes": {
       "202407": "202601",
       "202408": "202601",
@@ -724,11 +648,11 @@
     "nota": "Entre junio y julio de 2024 el BCRA subió de $1.000 a $25.000 el importe mínimo que las entidades deben informar a la Central de Deudores. Se cayeron 5,4 millones de registros (35,3 M a 29,9 M) y 3,1 millones de personas humanas, casi todas con deudas chicas: la mediana de los que dejaron de aparecer era de $12.000. No cambió quién informa: 432 entidades en junio, 454 en julio. Los niveles de los dos tramos NO son comparables entre sí; dentro de cada tramo sí lo son. El piso quedó fijo en términos nominales, así que la inflación lo licúa: explica ~4% del crecimiento de registros acumulado hasta 2026-01."
   },
   "totales_periodo_actual_previo_24dsf": {
-    "n_deudores": 20677829,
-    "n_morosos": 5738798,
-    "deuda_total_mm": 89021413.86,
-    "deuda_ex_hip_mm": 76329304.59,
-    "deuda_hip_mm": 12692109.27
+    "n_deudores": 20684181,
+    "n_morosos": 5747411,
+    "deuda_total_mm": 89060376.45,
+    "deuda_ex_hip_mm": 76368758.17,
+    "deuda_hip_mm": 12691618.28
   },
   "metodologia_por_mes": {
     "exactos": [
@@ -766,6 +690,6 @@
       "202512"
     ],
     "nota": "Los meses 'exactos' se calculan desde la tabla `deudores` de la base propia de ese mes (canon idéntico a la pestaña General, componente hipotecaria exacta por gar_pref_b, sin sesgo de supervivencia ni carry-forward). Los 'reconstruidos' salen del 24DSF (historico_24m) vía pipeline/4_tablero_historico.py: usan la heurística de hipotecarios y están filtrados contra los vínculos vigentes en el mes de su generación, por lo que SUBREGISTRAN a quienes ya cancelaron (hasta ~19% en el mes más viejo de la ventana). No comparar niveles entre ambos tramos sin tenerlo en cuenta.",
-    "generado": "2026-09-04 08:26:22"
+    "generado": "2026-09-11 12:20:59"
   }
 }

@@ -1,76 +1,76 @@
 {
   "periodo": "202607",
-  "fecha_generacion": "2026-09-04 18:02:05",
-  "tiempo_generacion_seg": 37.2,
+  "fecha_generacion": "2026-09-11 12:11:54",
+  "tiempo_generacion_seg": 27.2,
   "umbral_mora": "situacion >= 3",
   "vista_total": {
     "tipos": [
       {
         "tipo": "banco",
-        "n_deudores": 14258966,
-        "n_morosos": 2377214,
+        "n_deudores": 14254505,
+        "n_morosos": 2376360,
         "pct_personas_mora": 16.67,
-        "saldo_total_miles": 70501078072.0,
-        "saldo_irreg_miles": 11674463662.0,
+        "saldo_total_miles": 70490549657.0,
+        "saldo_irreg_miles": 11671832993.0,
         "pct_monto_irreg": 16.56
       },
       {
         "tipo": "financiera",
-        "n_deudores": 2154499,
-        "n_morosos": 804907,
+        "n_deudores": 2154198,
+        "n_morosos": 804754,
         "pct_personas_mora": 37.36,
-        "saldo_total_miles": 3440931973.0,
-        "saldo_irreg_miles": 603230425.0,
+        "saldo_total_miles": 3440504997.0,
+        "saldo_irreg_miles": 603086747.0,
         "pct_monto_irreg": 17.53
       },
       {
         "tipo": "pnfc",
-        "n_deudores": 12979315,
-        "n_morosos": 4174465,
-        "pct_personas_mora": 32.16,
-        "saldo_total_miles": 15063911189.0,
-        "saldo_irreg_miles": 5086230266.0,
+        "n_deudores": 12988431,
+        "n_morosos": 4175703,
+        "pct_personas_mora": 32.15,
+        "saldo_total_miles": 15112676731.0,
+        "saldo_irreg_miles": 5101407108.0,
         "pct_monto_irreg": 33.76
       }
     ],
-    "n_personas_universo": 20685791
+    "n_personas_universo": 20684088
   },
   "vista_consumo": {
     "tipos": [
       {
         "tipo": "banco",
-        "n_deudores": 14120515,
-        "n_morosos": 2361632,
+        "n_deudores": 14116063,
+        "n_morosos": 2360785,
         "pct_personas_mora": 16.72,
-        "saldo_total_miles": 50549703891.0,
-        "saldo_irreg_miles": 11062780047.0,
+        "saldo_total_miles": 50540189728.0,
+        "saldo_irreg_miles": 11060623639.0,
         "pct_monto_irreg": 21.88
       },
       {
         "tipo": "financiera",
-        "n_deudores": 2001105,
-        "n_morosos": 801872,
+        "n_deudores": 2000818,
+        "n_morosos": 801721,
         "pct_personas_mora": 40.07,
-        "saldo_total_miles": 1958629255.0,
-        "saldo_irreg_miles": 560460767.0,
+        "saldo_total_miles": 1958355717.0,
+        "saldo_irreg_miles": 560345985.0,
         "pct_monto_irreg": 28.61
       },
       {
         "tipo": "pnfc",
-        "n_deudores": 12979315,
-        "n_morosos": 4174465,
-        "pct_personas_mora": 32.16,
-        "saldo_total_miles": 15063911189.0,
-        "saldo_irreg_miles": 5086230266.0,
+        "n_deudores": 12988431,
+        "n_morosos": 4175703,
+        "pct_personas_mora": 32.15,
+        "saldo_total_miles": 15112676731.0,
+        "saldo_irreg_miles": 5101407108.0,
         "pct_monto_irreg": 33.76
       }
     ],
-    "n_personas_universo": 20583229
+    "n_personas_universo": 20581542
   },
   "cartera_consumo_bcra_calc": {
     "banco": {
-      "saldo_total_miles": 67762802466.0,
-      "saldo_irregular_miles": 8824919625.0,
+      "saldo_total_miles": 67762670490.0,
+      "saldo_irregular_miles": 8824060353.0,
       "ratio_pct": 13.02
     },
     "financiera": {
@@ -79,18 +79,18 @@
       "ratio_pct": 11.09
     },
     "pnfc": {
-      "saldo_total_miles": 505070076.0,
-      "saldo_irregular_miles": 504964910.0,
+      "saldo_total_miles": 505054281.0,
+      "saldo_irregular_miles": 504947707.0,
       "ratio_pct": 99.98
     },
     "sistema_regulado": {
-      "saldo_total_miles": 70962854967.0,
-      "saldo_irregular_miles": 9179815592.0,
-      "ratio_pct": 12.94
+      "saldo_total_miles": 70962722991.0,
+      "saldo_irregular_miles": 9178956320.0,
+      "ratio_pct": 12.93
     },
     "total": {
-      "saldo_total_miles": 71467925043.0,
-      "saldo_irregular_miles": 9684780502.0,
+      "saldo_total_miles": 71467777272.0,
+      "saldo_irregular_miles": 9683904027.0,
       "ratio_pct": 13.55
     },
     "definicion": "Cartera 'Para Consumo o Vivienda' según T-CLADEU del BCRA, identificada por el código de actividad '000' que cada entidad informante declara línea por línea en la Central de Deudores. Ratio = SUM(prestamos WHERE situacion BETWEEN 3 AND 6) ÷ SUM(prestamos). Se EXCLUYE `otros_conceptos` (write-offs en Partidas fuera de Balance, cartera adquirida y financiaciones del exterior — Com. A 6966, Sec. 3 del Apartado B) porque el BCRA tampoco lo computa en el ratio del Informe sobre Bancos. Sin filtro adicional de PF ni de gar_pref_b: replica el universo BCRA al pie de la letra."
