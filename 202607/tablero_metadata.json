@@ -1,8 +1,8 @@
 {
   "periodo": "202607",
   "fecha_ref": "2026-07-31",
-  "fecha_generacion": "2026-09-10 23:15:56",
-  "tiempo_generacion_seg": 447.7,
+  "fecha_generacion": "2026-09-17 17:03:00",
+  "tiempo_generacion_seg": 432.1,
   "filtros": {
     "provincias": [
       {
@@ -315,14 +315,14 @@
     "5": 15
   },
   "totales": {
-    "n_deudores": 20581542,
-    "n_morosos": 5736749,
-    "deuda_total_mm": 67611222.18,
-    "deuda_mora_mm": 16722376.73,
-    "deuda_banco_mm": 50540189.73,
-    "deuda_financiera_mm": 1958355.72,
-    "deuda_pnfc_mm": 15112676.73,
-    "pct_mora_deudores": 27.87,
+    "n_deudores": 20572096,
+    "n_morosos": 5727060,
+    "deuda_total_mm": 67594349.42,
+    "deuda_mora_mm": 16719243.26,
+    "deuda_banco_mm": 50533406.24,
+    "deuda_financiera_mm": 1958147.18,
+    "deuda_pnfc_mm": 15102796.0,
+    "pct_mora_deudores": 27.84,
     "pct_mora_deuda": 24.73
   },
   "notas_metodologicas": {

@@ -1,8 +1,8 @@
 {
   "periodo_actual": "202607",
   "fecha_ref": "2026-07-31",
-  "fecha_generacion": "2026-09-11 12:11:15",
-  "log": "tablero_historico_202607_20260910_231609.log",
+  "fecha_generacion": "2026-09-17 22:05:22",
+  "log": "tablero_historico_202607_20260917_170315.log",
   "periodos": [
     "202402",
     "202403",
@@ -39,8 +39,8 @@
     "umbral_gar_pref_b_miles": 30000,
     "banda_pct": 0.2,
     "nota": "Se marca como hipotecario cada mes de la historia en que, para un (cuil, entidad) que al período actual tiene gar_pref_b > 30,000 miles de $, el monto mensual informado cae dentro de ±20% del gar_pref_b actual. El monto de esos meses se atribuye 100% a la componente hipotecaria (simplificación: no se prorratea). No es un dato oficial del BCRA.",
-    "n_pares_hipotecarios": 139007,
-    "n_cuils_con_hipotecario": 137227,
+    "n_pares_hipotecarios": 139006,
+    "n_cuils_con_hipotecario": 137226,
     "aplica_a_meses": [
       "202402",
       "202403",
@@ -386,15 +386,15 @@
     ]
   },
   "totales_periodo_actual": {
-    "n_deudores": 20684088,
-    "n_morosos": 5749821,
-    "deuda_total_mm": 89043731.39,
-    "deuda_ex_hip_mm": 67611222.18,
-    "deuda_hip_mm": 21432509.21
+    "n_deudores": 20674649,
+    "n_morosos": 5740129,
+    "deuda_total_mm": 89026475.78,
+    "deuda_ex_hip_mm": 67594349.42,
+    "deuda_hip_mm": 21432126.36
   },
   "ultimo_mes_completado": {
     "aplicado": true,
-    "n_entidades_rezagadas": 50,
+    "n_entidades_rezagadas": 36,
     "nota": "El mes actual del 24DSF viene incompleto: las entidades listadas no informaron el mes -0 pero sí el mes -1, así que sus valores del mes -1 se arrastraron al mes actual (carry-forward a nivel entidad) para no subregistrar el último punto de la serie. En la próxima actualización este período se recalcula con los datos definitivos (la ventana de 24m lo pisa). Ver docstring de pipeline/4_tablero_historico.py.",
     "entidades": [
       {
@@ -426,32 +426,20 @@
         "nombre": "Fondo de Garantía Catamarca Sociedad Anónima con Participación Estatal"
       },
       {
-        "cod": "51015",
-        "nombre": "Fideicomiso Fondo de Garantías para el Desarrollo de las Micro, Pequeñ"
-      },
-      {
         "cod": "51016",
         "nombre": "Fondo de Garantía Río Negro (FoGaRío)"
-      },
-      {
-        "cod": "55002",
-        "nombre": "AMEPORT Mutual del Personal del Estado Nacional Provincial Municipal y"
       },
       {
         "cod": "55005",
         "nombre": "Asociación Mutual de las Fuerzas Armadas y Seguridad (AMFAYS)"
       },
       {
-        "cod": "55026",
-        "nombre": "Decréditos S.A."
-      },
-      {
         "cod": "55073",
         "nombre": "Oportunidad Microfinanciera Latinoamericana OMLA S.A."
       },
       {
-        "cod": "55086",
-        "nombre": "Asociación Mutual Asis"
+        "cod": "55093",
+        "nombre": "FINANCOMP S.A."
       },
       {
         "cod": "55096",
@@ -464,14 +452,6 @@
       {
         "cod": "55100",
         "nombre": "BAZAR AVENIDA S.A."
-      },
-      {
-        "cod": "55123",
-        "nombre": "Cooperativa 2001 de Vivienda, Crédito y Consumo Ltda."
-      },
-      {
-        "cod": "55125",
-        "nombre": "Cooperativa de Vivienda, Crédito, Consumo y Servicios Sociales Candela"
       },
       {
         "cod": "55130",
@@ -488,10 +468,6 @@
       {
         "cod": "55170",
         "nombre": "Cooperativa de Viv., Cred. y Con. Amigal Ltda."
-      },
-      {
-        "cod": "55210",
-        "nombre": "Del País Cooperativa de Crédito, Consumo y Vivienda Ltda."
       },
       {
         "cod": "55225",
@@ -512,10 +488,6 @@
       {
         "cod": "55289",
         "nombre": "UNION PROVINCIAL ASOCIACION MUTUAL"
-      },
-      {
-        "cod": "55298",
-        "nombre": "ESPACIO DIGITAL S.A"
       },
       {
         "cod": "55310",
@@ -550,14 +522,6 @@
         "nombre": "Finet SA"
       },
       {
-        "cod": "55411",
-        "nombre": "CREDITAN COOPERATIVA DE VIVIENDA CREDITO Y CONSUMO LTDA"
-      },
-      {
-        "cod": "55414",
-        "nombre": "INTERCAPITAL FACTORING S.A."
-      },
-      {
         "cod": "55479",
         "nombre": "FIDUCIA ARGENTINA S.A.S."
       },
@@ -566,36 +530,16 @@
         "nombre": "FINLATINA SA"
       },
       {
-        "cod": "70212",
-        "nombre": "CREDI-PAZ S.A."
-      },
-      {
         "cod": "70268",
         "nombre": "Asociación Mutual 20 de Julio"
-      },
-      {
-        "cod": "70433",
-        "nombre": "SISCOM S.R.L."
-      },
-      {
-        "cod": "70503",
-        "nombre": "LOCRED SRL"
       },
       {
         "cod": "71101",
         "nombre": "NOA CARD S.A."
       },
       {
-        "cod": "71202",
-        "nombre": "EMPRESUR S.A."
-      },
-      {
         "cod": "72129",
         "nombre": "ASOCIACION MUTUAL CLUB ATLETICO PILAR"
-      },
-      {
-        "cod": "72614",
-        "nombre": "MUTUAL DE DOCENTES DE NEUQUEN"
       }
     ]
   },
@@ -608,7 +552,7 @@
     "nota": "Serie consolidada multi-generación: cada corrida mensual de pipeline/4_tablero_historico.py pisa los meses de su ventana de 24 meses y preserva los anteriores tal como los dejó la generación que los aportó (heurística hipotecaria y padrón de ese momento). `fuentes` indica qué generación aportó cada mes.",
     "ventana_meses_por_generacion": 24,
     "generacion_mas_reciente": "202607",
-    "fecha_consolidacion": "2026-09-11 12:11:17",
+    "fecha_consolidacion": "2026-09-17 22:05:23",
     "fuentes": {
       "202407": "202601",
       "202408": "202601",
@@ -648,11 +592,11 @@
     "nota": "Entre junio y julio de 2024 el BCRA subió de $1.000 a $25.000 el importe mínimo que las entidades deben informar a la Central de Deudores. Se cayeron 5,4 millones de registros (35,3 M a 29,9 M) y 3,1 millones de personas humanas, casi todas con deudas chicas: la mediana de los que dejaron de aparecer era de $12.000. No cambió quién informa: 432 entidades en junio, 454 en julio. Los niveles de los dos tramos NO son comparables entre sí; dentro de cada tramo sí lo son. El piso quedó fijo en términos nominales, así que la inflación lo licúa: explica ~4% del crecimiento de registros acumulado hasta 2026-01."
   },
   "totales_periodo_actual_previo_24dsf": {
-    "n_deudores": 20684181,
-    "n_morosos": 5747411,
-    "deuda_total_mm": 89060376.45,
-    "deuda_ex_hip_mm": 76368758.17,
-    "deuda_hip_mm": 12691618.28
+    "n_deudores": 20674742,
+    "n_morosos": 5737719,
+    "deuda_total_mm": 89043117.17,
+    "deuda_ex_hip_mm": 76351695.07,
+    "deuda_hip_mm": 12691422.1
   },
   "metodologia_por_mes": {
     "exactos": [
@@ -690,6 +634,6 @@
       "202512"
     ],
     "nota": "Los meses 'exactos' se calculan desde la tabla `deudores` de la base propia de ese mes (canon idéntico a la pestaña General, componente hipotecaria exacta por gar_pref_b, sin sesgo de supervivencia ni carry-forward). Los 'reconstruidos' salen del 24DSF (historico_24m) vía pipeline/4_tablero_historico.py: usan la heurística de hipotecarios y están filtrados contra los vínculos vigentes en el mes de su generación, por lo que SUBREGISTRAN a quienes ya cancelaron (hasta ~19% en el mes más viejo de la ventana). No comparar niveles entre ambos tramos sin tenerlo en cuenta.",
-    "generado": "2026-09-11 12:20:59"
+    "generado": "2026-09-17 22:16:23"
   }
 }
