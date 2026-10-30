@@ -1,8 +1,8 @@
 {
-  "periodo_actual": "202608",
-  "fecha_ref": "2026-08-31",
-  "fecha_generacion": "2026-09-29 14:22:08",
-  "log": "tablero_historico_202608_20260929_140930.log",
+  "periodo_actual": "202609",
+  "fecha_ref": "2026-09-30",
+  "fecha_generacion": "2026-10-30 00:17:56",
+  "log": "tablero_historico_202609_20261030_000525.log",
   "periodos": [
     "202402",
     "202403",
@@ -34,14 +34,15 @@
     "202605",
     "202606",
     "202607",
-    "202608"
+    "202608",
+    "202609"
   ],
   "heuristica_hipotecarios": {
     "umbral_gar_pref_b_miles": 30000,
     "banda_pct": 0.2,
     "nota": "Se marca como hipotecario cada mes de la historia en que, para un (cuil, entidad) que al período actual tiene gar_pref_b > 30,000 miles de $, el monto mensual informado cae dentro de ±20% del gar_pref_b actual. El monto de esos meses se atribuye 100% a la componente hipotecaria (simplificación: no se prorratea). No es un dato oficial del BCRA.",
-    "n_pares_hipotecarios": 141921,
-    "n_cuils_con_hipotecario": 140057,
+    "n_pares_hipotecarios": 145371,
+    "n_cuils_con_hipotecario": 143468,
     "aplica_a_meses": [
       "202402",
       "202403",
@@ -75,7 +76,8 @@
       "202605",
       "202606",
       "202607",
-      "202608"
+      "202608",
+      "202609"
     ],
     "nota_tramos": "En los meses con base propia la componente hipotecaria es EXACTA (líneas con gar_pref_b > 0 en `deudores` de ese mes); la heurística de banda ±20% sólo se usa en los meses reconstruidos desde el 24DSF."
   },
@@ -83,8 +85,8 @@
     "fuente": "INDEC — IPC Nacional Nivel General",
     "archivo": "ipc.csv",
     "periodo_base_ipc": "201612 = 100",
-    "periodo_ref": "202608",
-    "ipc_ref": 12276.766,
+    "periodo_ref": "202609",
+    "ipc_ref": 12514.1508,
     "nota": "Para ajustar a pesos constantes del período_ref: monto_constante = monto_nominal * (ipc_ref / ipc[periodo])"
   },
   "filtros": {
@@ -388,17 +390,25 @@
     ]
   },
   "totales_periodo_actual": {
-    "n_deudores": 20815668,
-    "n_morosos": 5761876,
-    "deuda_total_mm": 91013225.57,
-    "deuda_ex_hip_mm": 68940086.96,
-    "deuda_hip_mm": 22073138.62
+    "n_deudores": 21039533,
+    "n_morosos": 5871521,
+    "deuda_total_mm": 93873937.34,
+    "deuda_ex_hip_mm": 70977330.77,
+    "deuda_hip_mm": 22896606.57
   },
   "ultimo_mes_completado": {
     "aplicado": true,
-    "n_entidades_rezagadas": 176,
+    "n_entidades_rezagadas": 116,
     "nota": "El mes actual del 24DSF viene incompleto: las entidades listadas no informaron el mes -0 pero sí el mes -1, así que sus valores del mes -1 se arrastraron al mes actual (carry-forward a nivel entidad) para no subregistrar el último punto de la serie. En la próxima actualización este período se recalcula con los datos definitivos (la ventana de 24m lo pisa). Ver docstring de pipeline/4_tablero_historico.py.",
     "entidades": [
+      {
+        "cod": "00338",
+        "nombre": "BANCO DE SERVICIOS Y TRANSACCIONES SAU"
+      },
+      {
+        "cod": "10303",
+        "nombre": "F.F PRIVADO YATASTO"
+      },
       {
         "cod": "10500",
         "nombre": "F.F. Y DE ADM. LA RIOJA REFINANCIAMIENTO DEL SECTOR PROD."
@@ -408,40 +418,88 @@
         "nombre": "F.F. Y DE ADM FIDEICOMISO DEUDORES AGROP BNA ENTRE RIOS"
       },
       {
-        "cod": "10812",
-        "nombre": "F.F. Y DE ADM REFINANCIAMIENTO DEUDORES AGROP PCIA DE RIO NEGRO"
+        "cod": "10628",
+        "nombre": "F.F. PRIVADO ASSET RECOVERY 5"
+      },
+      {
+        "cod": "10692",
+        "nombre": "F.F. PRIVADO FRANKEL"
+      },
+      {
+        "cod": "10903",
+        "nombre": "FF PRIVADO GESTIÓN DE ACTIVOS IV"
+      },
+      {
+        "cod": "10914",
+        "nombre": "RECUPERO DE ACTIVOS FIDEICOMISO FINANCIERO"
+      },
+      {
+        "cod": "10915",
+        "nombre": "F.F. CENTURIA"
+      },
+      {
+        "cod": "10921",
+        "nombre": "Flex Fideicomiso Financiero"
       },
       {
         "cod": "10922",
         "nombre": "Maipú Fideicomiso Financiero"
       },
       {
+        "cod": "10923",
+        "nombre": "F.F. PRIVADO GREEN LIGHT"
+      },
+      {
+        "cod": "10924",
+        "nombre": "CREDITIA FIDEICOMISO FINANCIERO"
+      },
+      {
+        "cod": "10925",
+        "nombre": "F.F. Privado HRC Recupero"
+      },
+      {
         "cod": "45056",
         "nombre": "MONTEMAR COMPAÑIA FINANCIERA S.A."
       },
       {
-        "cod": "50005",
-        "nombre": "AVAL FEDERAL SGR"
-      },
-      {
-        "cod": "50007",
-        "nombre": "AVAL RURAL SGR"
+        "cod": "50011",
+        "nombre": "Cuyo Aval SGR"
       },
       {
         "cod": "50017",
         "nombre": "PROMOVER SGR"
       },
       {
-        "cod": "50021",
-        "nombre": "AVAL AR SGR"
-      },
-      {
         "cod": "50023",
         "nombre": "UNION SGR"
       },
       {
+        "cod": "50024",
+        "nombre": "AVAL FERTIL SGR"
+      },
+      {
+        "cod": "50025",
+        "nombre": "AVALES DEL CENTRO SGR"
+      },
+      {
+        "cod": "50029",
+        "nombre": "Fid Aval SGR"
+      },
+      {
+        "cod": "50032",
+        "nombre": "RESILIENCIA SGR"
+      },
+      {
         "cod": "50036",
         "nombre": "Móvil S.G.R."
+      },
+      {
+        "cod": "50043",
+        "nombre": "Neuquèn Pymes SGR"
+      },
+      {
+        "cod": "51006",
+        "nombre": "Fondo de garantía para el Desarrollo Fueguino S.A.P.E.M. (FOGADEF)"
       },
       {
         "cod": "51008",
@@ -452,32 +510,20 @@
         "nombre": "Fondo de Garantía Catamarca Sociedad Anónima con Participación Estatal"
       },
       {
-        "cod": "51015",
-        "nombre": "Fideicomiso Fondo de Garantías para el Desarrollo de las Micro, Pequeñ"
+        "cod": "51016",
+        "nombre": "Fondo de Garantía Río Negro (FoGaRío)"
       },
       {
         "cod": "55002",
         "nombre": "AMEPORT Mutual del Personal del Estado Nacional Provincial Municipal y"
       },
       {
-        "cod": "55003",
-        "nombre": "Asociación Mutual Centro Litoral"
+        "cod": "55009",
+        "nombre": "Carsa S.A."
       },
       {
-        "cod": "55008",
-        "nombre": "Asociación Mutual Unión Solidaria"
-      },
-      {
-        "cod": "55015",
-        "nombre": "Coppel S.A."
-      },
-      {
-        "cod": "55025",
-        "nombre": "Cuotitas S.A."
-      },
-      {
-        "cod": "55026",
-        "nombre": "Decréditos S.A."
+        "cod": "55018",
+        "nombre": "Cooperativa de Provisión de Obras y Servicios Publicos y de Créditos C"
       },
       {
         "cod": "55041",
@@ -488,112 +534,64 @@
         "nombre": "Plural Cooperativa de Crédito, Consumo y Vivienda Ltda."
       },
       {
-        "cod": "55043",
-        "nombre": "Provincia Leasing S.A."
-      },
-      {
         "cod": "55048",
         "nombre": "Sicom S.A."
       },
       {
-        "cod": "55052",
-        "nombre": "Asociación Mututal 18 de Julio"
-      },
-      {
-        "cod": "55061",
-        "nombre": "Radio Sapienza S.A."
-      },
-      {
-        "cod": "55075",
-        "nombre": "IDUN INVERSIONES S.A."
-      },
-      {
-        "cod": "55082",
-        "nombre": "Asociación Mutual de Pensionados Sociales Ley 5110"
+        "cod": "55063",
+        "nombre": "Uninverc S.A."
       },
       {
         "cod": "55088",
         "nombre": "Asociación Mutual de Docentes de la Provincia del Chaco"
       },
       {
-        "cod": "55092",
-        "nombre": "Dante Tanino Hogar S.A."
+        "cod": "55094",
+        "nombre": "Genesys S.A."
       },
       {
-        "cod": "55093",
-        "nombre": "FINANCOMP S.A."
+        "cod": "55118",
+        "nombre": "Cooperativa de Vivienda, Crédito y Consumo VIXA LTDA"
       },
       {
-        "cod": "55107",
-        "nombre": "ARGENCRED S.A."
-      },
-      {
-        "cod": "55121",
-        "nombre": "Asociación Mutual Malvinas Argentinas"
-      },
-      {
-        "cod": "55125",
-        "nombre": "Cooperativa de Vivienda, Crédito, Consumo y Servicios Sociales Candela"
-      },
-      {
-        "cod": "55133",
-        "nombre": "Rotas S.A."
+        "cod": "55124",
+        "nombre": "Plusrasgo S.A."
       },
       {
         "cod": "55144",
         "nombre": "ASOCIACION MUTUAL 23 DE SEPTIEMBRE"
       },
       {
-        "cod": "55146",
-        "nombre": "LIPACO MERCANTIL S.A."
-      },
-      {
         "cod": "55149",
         "nombre": "INDO S.A."
       },
       {
-        "cod": "55152",
-        "nombre": "Asociación Mutual de protección Familiar"
+        "cod": "55159",
+        "nombre": "TCC Cooperativa de Crédito, Consumo y Vivienda Limitada"
       },
       {
-        "cod": "55156",
-        "nombre": "UNIGESTION SA"
+        "cod": "55160",
+        "nombre": "Arrayanes Cooperativa de Vivienda, Crédito y Consumo"
       },
       {
-        "cod": "55158",
-        "nombre": "San Cristóbal Bienes Raíces S.A."
-      },
-      {
-        "cod": "55163",
-        "nombre": "FF Capital Group S.A."
+        "cod": "55162",
+        "nombre": "Aquiprestamos.com S.A."
       },
       {
         "cod": "55166",
         "nombre": "Waynicoin S.A."
       },
       {
-        "cod": "55172",
-        "nombre": "FINARES S.A."
-      },
-      {
-        "cod": "55177",
-        "nombre": "Catalinas Cooperativa de Crédito, Consumo y Vivienda Ltda."
+        "cod": "55170",
+        "nombre": "Cooperativa de Viv., Cred. y Con. Amigal Ltda."
       },
       {
         "cod": "55183",
         "nombre": "Nobel Cooperativa de Crédito, Vivienda y Servicio de Transporte Ltda."
       },
       {
-        "cod": "55186",
-        "nombre": "Confinance S.A."
-      },
-      {
-        "cod": "55201",
-        "nombre": "Credit & Investment SRL"
-      },
-      {
-        "cod": "55202",
-        "nombre": "Depsa Valores S.A."
+        "cod": "55192",
+        "nombre": "G Y F Factoring S.A."
       },
       {
         "cod": "55208",
@@ -604,36 +602,20 @@
         "nombre": "Del País Cooperativa de Crédito, Consumo y Vivienda Ltda."
       },
       {
-        "cod": "55214",
-        "nombre": "Credinegocios Moscasil S.A."
+        "cod": "55213",
+        "nombre": "Multiplycard S.A."
       },
       {
         "cod": "55219",
         "nombre": "Cooperativa de Vivienda Crédito y Consumo La Integradora Limitada"
       },
       {
-        "cod": "55226",
-        "nombre": "MSM Leasing S.A."
+        "cod": "55225",
+        "nombre": "EXI S.A."
       },
       {
-        "cod": "55227",
-        "nombre": "Mutual Federada 25 de junio SPR"
-      },
-      {
-        "cod": "55235",
-        "nombre": "Valerza S.A."
-      },
-      {
-        "cod": "55242",
-        "nombre": "MG-Group S.A."
-      },
-      {
-        "cod": "55244",
-        "nombre": "MUTUAL DEL AGRO LA INDUSTRIA Y EL COMERCIO DE SANTA FE"
-      },
-      {
-        "cod": "55245",
-        "nombre": "CUOTAFACIL SA"
+        "cod": "55234",
+        "nombre": "1° de Julio Cooperativa de Vivienda, Crédito y Consumo Ltda"
       },
       {
         "cod": "55255",
@@ -652,44 +634,36 @@
         "nombre": "FINANCOMPRA S.A."
       },
       {
-        "cod": "55269",
-        "nombre": "SERVICIOS OSTENDE SRL"
+        "cod": "55265",
+        "nombre": "CRE-DIN S. A."
       },
       {
-        "cod": "55273",
-        "nombre": "INSIGHT GROUP SA"
+        "cod": "55266",
+        "nombre": "CRÉDITO DEL VALLE S.A."
+      },
+      {
+        "cod": "55267",
+        "nombre": "ACUATRO S.A."
+      },
+      {
+        "cod": "55269",
+        "nombre": "SERVICIOS OSTENDE SRL"
       },
       {
         "cod": "55277",
         "nombre": "ASOCIACION MUTUAL FIAT CONCORD"
       },
       {
-        "cod": "55279",
-        "nombre": "SOLVENTA SAS"
-      },
-      {
-        "cod": "55287",
-        "nombre": "COBRO FACIL SRL"
+        "cod": "55281",
+        "nombre": "ASOCIACION MUTUAL CELESOL DE SERVICIOS INTEGRALES Y EDUCATIVOS"
       },
       {
         "cod": "55295",
         "nombre": "CREDITAM LIMITADA S.A."
       },
       {
-        "cod": "55296",
-        "nombre": "SANTANDER CONSUMER SA"
-      },
-      {
         "cod": "55297",
         "nombre": "FINANCITY S.A."
-      },
-      {
-        "cod": "55307",
-        "nombre": "RED DE PRESTAMOS SA"
-      },
-      {
-        "cod": "55309",
-        "nombre": "MUTUAL DEL PERSONAL DEL MINISTERIO DE EDUCACION Y JUSTICIA DE LA NACIO"
       },
       {
         "cod": "55310",
@@ -704,72 +678,44 @@
         "nombre": "REGGIO DI CALABRIA S.R.L."
       },
       {
-        "cod": "55328",
-        "nombre": "LOGINCREDIT S.A."
+        "cod": "55317",
+        "nombre": "BARSATEX S.A."
+      },
+      {
+        "cod": "55320",
+        "nombre": "POTSDAM S.A."
+      },
+      {
+        "cod": "55334",
+        "nombre": "VALUARTE SRL"
       },
       {
         "cod": "55338",
         "nombre": "TRESSFEN SA"
       },
       {
-        "cod": "55339",
-        "nombre": "MAEBA S.R.L."
-      },
-      {
-        "cod": "55340",
-        "nombre": "FINANPRO S.R.L."
-      },
-      {
-        "cod": "55341",
-        "nombre": "PROAVALAR S.R.L"
-      },
-      {
-        "cod": "55345",
-        "nombre": "CSPB INVERSIONES SA"
-      },
-      {
-        "cod": "55346",
-        "nombre": "Number S.A."
-      },
-      {
-        "cod": "55353",
-        "nombre": "VIKA 2010 S.A."
+        "cod": "55352",
+        "nombre": "Cooperativa de vivienda crédito y consumo San José Ltda"
       },
       {
         "cod": "55355",
         "nombre": "FULLCREDIT SA"
       },
       {
-        "cod": "55357",
-        "nombre": "CREDIBEL S.A."
+        "cod": "55366",
+        "nombre": "CYAP NOW S.A."
       },
       {
-        "cod": "55360",
-        "nombre": "Credi-Full S.A."
-      },
-      {
-        "cod": "55374",
-        "nombre": "EJS S.A."
+        "cod": "55367",
+        "nombre": "INVERSORA DEL NORTE S.A."
       },
       {
         "cod": "55382",
         "nombre": "UFINAN SA"
       },
       {
-        "cod": "55386",
-        "nombre": "WIBOND SAS"
-      },
-      {
-        "cod": "55387",
-        "nombre": "Asociacion Mutual Integracion Solidaria Villa Maria \"AMISVIMA\""
-      },
-      {
         "cod": "55389",
         "nombre": "SI CAPITAL"
-      },
-      {
-        "cod": "55395",
-        "nombre": "CIGANDA & MASARIE"
       },
       {
         "cod": "55396",
@@ -780,22 +726,6 @@
         "nombre": "BELMONT CAPITAL S.A."
       },
       {
-        "cod": "55399",
-        "nombre": "MAMLUSENA S.A."
-      },
-      {
-        "cod": "55401",
-        "nombre": "ZHARO SA"
-      },
-      {
-        "cod": "55403",
-        "nombre": "FACILCRED S.A."
-      },
-      {
-        "cod": "55408",
-        "nombre": "SCANIA CREDIT ARGENTINA S.A.U."
-      },
-      {
         "cod": "55411",
         "nombre": "CREDITAN COOPERATIVA DE VIVIENDA CREDITO Y CONSUMO LTDA"
       },
@@ -804,108 +734,40 @@
         "nombre": "ASOCIACIÓN MUTUAL PILARENSES"
       },
       {
-        "cod": "55414",
-        "nombre": "INTERCAPITAL FACTORING S.A."
-      },
-      {
-        "cod": "55415",
-        "nombre": "BLM SERVICIOS SA"
-      },
-      {
-        "cod": "55419",
-        "nombre": "Daneio SA"
-      },
-      {
-        "cod": "55429",
-        "nombre": "POLO VALORES S.A."
-      },
-      {
         "cod": "55432",
         "nombre": "LUCSE INVERSIONES S.A."
-      },
-      {
-        "cod": "55439",
-        "nombre": "MUTUAL DE PORTEÑA ASOCIACION CULTURAL Y DEPORTIVA"
-      },
-      {
-        "cod": "55442",
-        "nombre": "LA LOMITA CAPITAL S.A."
       },
       {
         "cod": "55444",
         "nombre": "CREDISE S.A."
       },
       {
-        "cod": "55445",
-        "nombre": "BLM DESARROLLOS SA"
+        "cod": "55449",
+        "nombre": "FIDEICOMISO PRIVADO DE ADMINISTRACION CENFIDE"
       },
       {
-        "cod": "55450",
-        "nombre": "PRESTY SRL"
+        "cod": "55454",
+        "nombre": "BIA SRL"
       },
       {
-        "cod": "55457",
-        "nombre": "MIGXION S.A."
+        "cod": "55456",
+        "nombre": "PREST SPC SAS"
       },
       {
         "cod": "55458",
         "nombre": "SOLVERS S.A."
       },
       {
-        "cod": "55462",
-        "nombre": "CORVALAN 1160 SA"
-      },
-      {
-        "cod": "55470",
-        "nombre": "CAMELUS S.A."
-      },
-      {
-        "cod": "55472",
-        "nombre": "SUMA INVERSIONES S.A."
-      },
-      {
-        "cod": "55474",
-        "nombre": "FIDEICOMISOS MANDATOS E INVERSIONES SA"
-      },
-      {
-        "cod": "55477",
-        "nombre": "MERITE S.A."
-      },
-      {
-        "cod": "55484",
-        "nombre": "Inclusión Financiera Integral SRL"
+        "cod": "55481",
+        "nombre": "AGMA S.R.L"
       },
       {
         "cod": "55485",
         "nombre": "G&T GESTIONES COMERCIALES S.A."
       },
       {
-        "cod": "55486",
-        "nombre": "TODOPAY S.R.L."
-      },
-      {
-        "cod": "55488",
-        "nombre": "RIO FRANCO SA"
-      },
-      {
-        "cod": "55490",
-        "nombre": "ASOCIACION MUTUAL DE ASOCIADOS DEL CLUB ATLETICO UNION"
-      },
-      {
-        "cod": "55492",
-        "nombre": "Asociación Mutual de Trabajadores Argentinos Estatales"
-      },
-      {
-        "cod": "55493",
-        "nombre": "OPENCRED SA"
-      },
-      {
-        "cod": "55494",
-        "nombre": "Mifloder SAS"
-      },
-      {
-        "cod": "55495",
-        "nombre": "SOCIEDAD DE CREDITO SA"
+        "cod": "55497",
+        "nombre": "FINLATINA SA"
       },
       {
         "cod": "55498",
@@ -916,32 +778,12 @@
         "nombre": "DIE ZUKUNFT SA"
       },
       {
-        "cod": "55502",
-        "nombre": "ATYLIUM FINANCE GROUP SA"
-      },
-      {
-        "cod": "55506",
-        "nombre": "CYFSA S.A."
-      },
-      {
-        "cod": "55515",
-        "nombre": "Fidelity SRL"
-      },
-      {
         "cod": "55521",
         "nombre": "GRAY MATTER SRL"
       },
       {
-        "cod": "55523",
-        "nombre": "COMERCIAL FERSA SRL"
-      },
-      {
         "cod": "55525",
         "nombre": "ASOCIACION MUTUAL GRAL J JOSE DE URQUIZA"
-      },
-      {
-        "cod": "55526",
-        "nombre": "Asociacion Mutual Progreso Entrerriano"
       },
       {
         "cod": "55531",
@@ -952,72 +794,28 @@
         "nombre": "PLUS COOPERATIVA DE CREDITO CONS Y VIV LTDA."
       },
       {
-        "cod": "55534",
-        "nombre": "Mutual 22 de septiembre"
+        "cod": "55566",
+        "nombre": "SALOMON S.A. SOCIEDAD ANONIMA"
       },
       {
-        "cod": "55538",
-        "nombre": "CORDOBA VALORES S.A."
+        "cod": "55580",
+        "nombre": "Platinum Viajes S.A."
       },
       {
-        "cod": "55539",
-        "nombre": "FRANKFURT S.A."
-      },
-      {
-        "cod": "55544",
-        "nombre": "YOLO CASH S.A."
-      },
-      {
-        "cod": "55561",
-        "nombre": "TJS CAPITAL S.A."
-      },
-      {
-        "cod": "55574",
-        "nombre": "Cooperativa de Vivienda, Crédito y Consumo Finadi Limitada"
-      },
-      {
-        "cod": "55577",
-        "nombre": "BLOQUES S.A."
-      },
-      {
-        "cod": "55584",
-        "nombre": "CONSUMEX S.A."
-      },
-      {
-        "cod": "55586",
-        "nombre": "WUNDER S.A."
-      },
-      {
-        "cod": "55598",
-        "nombre": "AVANCRED SAS"
-      },
-      {
-        "cod": "55602",
-        "nombre": "ENTERPRISE AID GROUP S.A."
-      },
-      {
-        "cod": "70101",
-        "nombre": "AMERICAN EXPRESS ARGENTINA S.A."
-      },
-      {
-        "cod": "70141",
-        "nombre": "YPF S.A."
+        "cod": "55582",
+        "nombre": "VERTIX S.A."
       },
       {
         "cod": "70142",
         "nombre": "ALARFIN S.A."
       },
       {
-        "cod": "70154",
-        "nombre": "TELEPEAJE S.A."
+        "cod": "70231",
+        "nombre": "MUTUAL DE ASOC Y ADHER CLUB SPORTS SALTO"
       },
       {
-        "cod": "70212",
-        "nombre": "CREDI-PAZ S.A."
-      },
-      {
-        "cod": "70228",
-        "nombre": "SANTA MONICA S.A."
+        "cod": "70252",
+        "nombre": "JUCARD JUNIN S.R.L."
       },
       {
         "cod": "70270",
@@ -1028,64 +826,24 @@
         "nombre": "Corfa Servi S.R.L."
       },
       {
-        "cod": "70435",
-        "nombre": "SERVICIOS FECESCOR S.A"
-      },
-      {
         "cod": "70503",
         "nombre": "LOCRED SRL"
-      },
-      {
-        "cod": "70808",
-        "nombre": "Caja Municipal de Préstamos Sociedad de Economía Mixta"
       },
       {
         "cod": "70903",
         "nombre": "Única compañía de Crédito S.A."
       },
       {
-        "cod": "71103",
-        "nombre": "GLOBAL S.R.L."
-      },
-      {
-        "cod": "71202",
-        "nombre": "EMPRESUR S.A."
-      },
-      {
-        "cod": "71204",
-        "nombre": "Crédito Móvil S.A."
-      },
-      {
-        "cod": "71402",
-        "nombre": "CENTRO CARD S.A."
-      },
-      {
-        "cod": "71605",
-        "nombre": "AVALON CREDITOS PERSONALES S.A."
-      },
-      {
         "cod": "71801",
         "nombre": "DATA 2000 S.A."
       },
       {
+        "cod": "72106",
+        "nombre": "ASOCIACION MUTUAL VENADO TUERTO"
+      },
+      {
         "cod": "72112",
         "nombre": "ASOC MUTUAL SOC CTRO EC CAÑADA DE GOMEZ"
-      },
-      {
-        "cod": "72128",
-        "nombre": "ASOCIACION MUTUAL CLUB COLON DE SAN JUSTO"
-      },
-      {
-        "cod": "72136",
-        "nombre": "Asociación Mutualista del Club Central San Carlos"
-      },
-      {
-        "cod": "72307",
-        "nombre": "CAJA POPULAR DE AHORROS PCIA DE TUCUMAN"
-      },
-      {
-        "cod": "72607",
-        "nombre": "FIRENZE COOPERATIVA DE CRÉDITO, CONSUMO, VIVIENDA, TURISMO Y SERVICIOS"
       },
       {
         "cod": "72613",
@@ -1096,12 +854,16 @@
         "nombre": "MUTUAL DE DOCENTES DE NEUQUEN"
       },
       {
-        "cod": "72618",
-        "nombre": "ASOCIACION MUTUAL DE ASOCIADOS Y ADHERENTES DEL CENTRO JUVENIL SPORTIV"
+        "cod": "72629",
+        "nombre": "N&CO PAY CREDIT SERVICIOS FINANCIEROS S.A."
       },
       {
-        "cod": "72638",
-        "nombre": "Pago Virtual del Sur S.A."
+        "cod": "72631",
+        "nombre": "COOPERATIVA DE PROVISION DE BIENES Y SERVICIOS ALLEN LTDA"
+      },
+      {
+        "cod": "72641",
+        "nombre": "SUPRESTAMO SAS"
       }
     ]
   },
@@ -1113,8 +875,8 @@
   "consolidado": {
     "nota": "Serie consolidada multi-generación: cada corrida mensual de pipeline/4_tablero_historico.py pisa los meses de su ventana de 24 meses y preserva los anteriores tal como los dejó la generación que los aportó (heurística hipotecaria y padrón de ese momento). `fuentes` indica qué generación aportó cada mes.",
     "ventana_meses_por_generacion": 24,
-    "generacion_mas_reciente": "202608",
-    "fecha_consolidacion": "2026-09-29 14:22:10",
+    "generacion_mas_reciente": "202609",
+    "fecha_consolidacion": "2026-10-30 00:17:58",
     "fuentes": {
       "202407": "202601",
       "202408": "202601",
@@ -1134,19 +896,20 @@
       "202510": "202601",
       "202511": "202601",
       "202512": "202601",
-      "202601": "202608",
-      "202602": "202608",
-      "202603": "202608",
-      "202604": "202608",
-      "202605": "202608",
-      "202606": "202608",
+      "202601": "202609",
+      "202602": "202609",
+      "202603": "202609",
+      "202604": "202609",
+      "202605": "202609",
+      "202606": "202609",
       "202402": "202601",
       "202403": "202601",
       "202404": "202601",
       "202405": "202601",
       "202406": "202601",
-      "202607": "202608",
-      "202608": "202608"
+      "202607": "202609",
+      "202608": "202609",
+      "202609": "202609"
     }
   },
   "corte_universo": {
@@ -1155,11 +918,11 @@
     "nota": "Entre junio y julio de 2024 el BCRA subió de $1.000 a $25.000 el importe mínimo que las entidades deben informar a la Central de Deudores. Se cayeron 5,4 millones de registros (35,3 M a 29,9 M) y 3,1 millones de personas humanas, casi todas con deudas chicas: la mediana de los que dejaron de aparecer era de $12.000. No cambió quién informa: 432 entidades en junio, 454 en julio. Los niveles de los dos tramos NO son comparables entre sí; dentro de cada tramo sí lo son. El piso quedó fijo en términos nominales, así que la inflación lo licúa: explica ~4% del crecimiento de registros acumulado hasta 2026-01."
   },
   "totales_periodo_actual_previo_24dsf": {
-    "n_deudores": 20815755,
-    "n_morosos": 5759605,
-    "deuda_total_mm": 91031017.99,
-    "deuda_ex_hip_mm": 77873184.25,
-    "deuda_hip_mm": 13157833.74
+    "n_deudores": 21039623,
+    "n_morosos": 5869386,
+    "deuda_total_mm": 93892794.47,
+    "deuda_ex_hip_mm": 80173326.67,
+    "deuda_hip_mm": 13719467.8
   },
   "metodologia_por_mes": {
     "exactos": [
@@ -1170,7 +933,8 @@
       "202605",
       "202606",
       "202607",
-      "202608"
+      "202608",
+      "202609"
     ],
     "reconstruidos": [
       "202402",
@@ -1198,6 +962,6 @@
       "202512"
     ],
     "nota": "Los meses 'exactos' se calculan desde la tabla `deudores` de la base propia de ese mes (canon idéntico a la pestaña General, componente hipotecaria exacta por gar_pref_b, sin sesgo de supervivencia ni carry-forward). Los 'reconstruidos' salen del 24DSF (historico_24m) vía pipeline/4_tablero_historico.py: usan la heurística de hipotecarios y están filtrados contra los vínculos vigentes en el mes de su generación, por lo que SUBREGISTRAN a quienes ya cancelaron (hasta ~19% en el mes más viejo de la ventana). No comparar niveles entre ambos tramos sin tenerlo en cuenta.",
-    "generado": "2026-09-29 14:39:35"
+    "generado": "2026-10-30 00:30:12"
   }
 }
